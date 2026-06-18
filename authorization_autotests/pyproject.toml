@@ -1,0 +1,210 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "authorization_autotests"
+description = "Tests project for IM Messengers: ICQ/VK Teams/TARM"
+authors = [
+    { name = "Arthem Zahtarenko", email = 'a.zakhtarenko@vk.team'}
+]
+
+requires-python = ">=3.8"
+
+dependencies = [
+    'pytest==8.4.2',
+    'pytest_lazy_fixtures==1.4.0',
+    'setuptools<82.0.0',
+    'faker==40.21.0',
+    'allure-python-commons~=2.16.0',
+    'requests==2.32.5',
+    'imap-tools==1.13.0',
+    'beautifulsoup4==4.14.3',
+    'urllib3==2.6.3',
+    'pyimagine==3.3.8',
+    'allure-pytest==2.16.0',
+    'requests-kerberos==0.15.0',
+    'httpx==0.28.1',
+    'imcommonsupplyclient==2026.5.1',
+    "opentelemetry-api==1.25.0",
+    "opentelemetry-distro==0.46b0",
+    "opentelemetry-exporter-otlp-proto-grpc==1.25.0",
+    "opentelemetry-exporter-otlp-proto-http==1.25.0",
+    "opentelemetry-instrumentation==0.46b0",
+    "opentelemetry-instrumentation-asgi==0.46b0",
+    "opentelemetry-instrumentation-asyncio==0.46b0",
+    "opentelemetry-instrumentation-aws-lambda==0.46b0",
+    "opentelemetry-instrumentation-dbapi==0.46b0",
+    "opentelemetry-instrumentation-httpx==0.46b0",
+    "opentelemetry-instrumentation-logging==0.46b0",
+    "opentelemetry-instrumentation-requests==0.46b0",
+    "opentelemetry-instrumentation-sqlite3==0.46b0",
+    "opentelemetry-instrumentation-threading==0.46b0",
+    "opentelemetry-instrumentation-urllib==0.46b0",
+    "opentelemetry-instrumentation-urllib3==0.46b0",
+    "opentelemetry-instrumentation-wsgi==0.46b0",
+    "opentelemetry-propagator-aws-xray==1.0.1",
+    "opentelemetry-sdk==1.25.0",
+    "opentelemetry-semantic-conventions==0.46b0",
+    "opentelemetry-test-utils==0.46b0",
+    "opentelemetry-util-http==0.46b0",
+    "pytest-opentelemetry==1.1.0",
+]
+
+dynamic = ["version"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+allow-ambiguous-features = true
+
+[tool.hatch.version]
+path = "tests/__init__.py"
+
+[tool.hatch.envs.default]
+python = "3.11"
+skip-install = false
+features = [
+  "dev",
+]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310", "311", "312"]
+
+[tool.hatch.envs.test.scripts]
+run = "pytest"
+
+[tool.hatch.envs.test-last.scripts]
+run = "pytest"
+
+[tool.pytest.ini_options]
+addopts = [
+    "-m=SANDBOX",
+    "--showlocals",
+    "--capture=no",
+#    "-p no:sugar",
+    "-v",
+    "--color=auto",
+    "--alluredir=reports/allure-results",
+#    "--clean-alluredir",
+    "--durations=200",
+    "--durations-min=5.0",
+    "--log-cli-level=INFO"
+]
+
+console_output_style = 'modern'
+testpaths = [
+    "tests/test_biz",
+    "tests/test_mail",
+    "tests/test_teams"
+]
+
+log_cli = true
+log_cli_level = "WARNING"
+# https://docs.python.org/3/library/logging.html#module-logging
+log_cli_format = "[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%H:%M:%S"
+
+markers = [
+    "WS: tests for VKTI",
+    "BIZ: tests for VKTI (preproduction)",
+    "TEAMS_OTP: tests for TARM",
+    "TEAMS_SSO: tests for TARM (preproduction)",
+    "TEAMS_SWA: tests for SANDBOX",
+]
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "venv",
+    "virtualenv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+line-length = 120
+
+# Assume Python 3.10.
+target-version = "py311"
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["src/foo"]
+sources = ["src"]
+
+[lint]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+unfixable = []
+
+ignore = []
+
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = ["E", "F"]
+
+task-tags = ["TODO", "FIXME"]
+
+[lint.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[lint.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
+
+[lint.pylint]
+max-returns = 1

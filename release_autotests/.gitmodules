@@ -1,0 +1,3 @@
+[submodule "myteam-config-json"]
+	path = myteam-config-json
+	url = ../../imserver/myteam-config-json.git

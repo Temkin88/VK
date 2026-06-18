@@ -1,0 +1,471 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "release-autotests"
+description = "Tests project for IM Messengers: ICQ/VK Teams/TARM"
+authors = [
+    { name = "Korobov Valerii", email = "v.korobov@corp.mail.ru" },
+    { name = "Arthem Zahtarenko", email = 'a.zakhtarenko@vk.team'}
+]
+
+requires-python = ">=3.8"
+
+dependencies = [
+    'quarantine-client>=2025.6.18',
+    'allure-python-commons==2.13.6.dev6+ge58e118',
+    'allure-pytest==2.13.6.dev6+ge58e118',
+    'attrs>=22.1.0',
+    'build==0.10.0',
+    'CacheControl==0.12.11',
+    'cached-property==1.5.2',
+    'certifi>=2022.12.7',
+    'cffi==1.17.1',
+    'charset-normalizer',
+    'cleo==2.0.1',
+    'contextlib2==21.6.0',
+    'coverage==7.1.0',
+    'crashtest==0.4.1',
+    'cryptography==37.0.4',
+    'decorator==5.1.1',
+    'distlib==0.3.6',
+    'dulwich==0.21.3',
+    'etcd3==0.12.0',
+    'exceptiongroup==1.1.1',
+    'execnet==1.9.0',
+    'expiringdict==1.2.1',
+    'Faker==16.6.1',
+    'filelock==3.12.0',
+    'flaky==3.8.0',
+    'greenlet>=2.0.2',
+    'gTTS==2.2.3',
+    'grpcio==1.64.1',
+    'html5lib==1.1',
+    'idna==3.4',
+    'imcommonsupplyclient==2025.11.1',
+    'im-swagger-spy==2025.8.3',
+    'imap-tools==1.7.0',
+    'iniconfig==2.0.0',
+    'installer==0.7.0',
+    'jaraco.classes==3.2.3',
+    'jeepney==0.8.0',
+    'Jinja2==3.1.2',
+    'jsondiff==2.0.0',
+    'jsonschema==4.16.0',
+    'keyring==23.9.3',
+    'lockfile==0.12.2',
+    'lorem==0.1.1',
+    'MarkupSafe==2.1.2',
+    'monotonic==1.6',
+    'more-itertools==8.14.0',
+    'msgpack==1.0.4',
+    'packaging==22.0',
+    'peewee==3.16.1',
+    'pexpect==4.8.0',
+    'pkginfo==1.9.6',
+    'platformdirs==2.5.2',
+    'pluggy==1.5.0',
+    'protobuf==3.20.*',
+    'psutil==6.0.0',
+    'ptyprocess==0.7.0',
+    'py==1.11.0',
+    'pycparser==2.21',
+    'pydantic==1.10.4',
+    'pyee==13.0.0',
+    'pyparsing==3.0.8',
+    'pyproject_hooks==1.0.0',
+    'pyrsistent==0.18.1',
+    'pytest==8.4.1',
+    'pytest-forked==1.4.0',
+    'pytest-ordering==0.6',
+    'python-slugify==8.0.1',
+    'pytest-xdist==3.1.0',
+    'python-baseconv==1.2.2',
+    'pyvkteamsbot==2025.0.4',
+    'pyvkteamsclient==2025.12.8',
+#    'PyYAML==6.0',
+    'rapidfuzz==2.13.7',
+    'requests==2.31.0',
+    'requests-ratelimiter==0.7.0',
+    'rootpath',
+    'ruff==0.12.*',
+    'schema==0.7.5',
+    'SecretStorage==3.3.3',
+    'six==1.16.0',
+    'StrEnum==0.4.10',
+    'tenacity>=8.3.0',
+    'termcolor==2.2.0',
+    'text-unidecode==1.3',
+    'tomli==2.0.1',
+    'tomlkit==0.11.5',
+    'tox==3.28.0',
+    'trove-classifiers==2022.12.22',
+    'typing_extensions>=4.5.1',
+    'urllib3>=1.21.1',
+    'webencodings==0.5.1',
+    'pytest-check',
+    "opentelemetry-api==1.25.0",
+    "opentelemetry-distro==0.46b0",
+    "opentelemetry-exporter-otlp-proto-grpc==1.25.0",
+    "opentelemetry-exporter-otlp-proto-http==1.25.0",
+    "opentelemetry-instrumentation==0.46b0",
+    "opentelemetry-instrumentation-asgi==0.46b0",
+    "opentelemetry-instrumentation-asyncio==0.46b0",
+    "opentelemetry-instrumentation-aws-lambda==0.46b0",
+    "opentelemetry-instrumentation-dbapi==0.46b0",
+    "opentelemetry-instrumentation-httpx==0.46b0",
+    "opentelemetry-instrumentation-logging==0.46b0",
+    "opentelemetry-instrumentation-requests==0.46b0",
+    "opentelemetry-instrumentation-sqlite3==0.46b0",
+    "opentelemetry-instrumentation-threading==0.46b0",
+    "opentelemetry-instrumentation-urllib==0.46b0",
+    "opentelemetry-instrumentation-urllib3==0.46b0",
+    "opentelemetry-instrumentation-wsgi==0.46b0",
+    "opentelemetry-propagator-aws-xray==1.0.1",
+    "opentelemetry-sdk==1.25.0",
+    "opentelemetry-semantic-conventions==0.46b0",
+    "opentelemetry-test-utils==0.46b0",
+    "opentelemetry-util-http==0.46b0",
+    "pytest-opentelemetry==1.0.0",
+]
+
+dynamic = ["version"]
+
+[project.optional-dependencies]
+linter = [
+    "ruff>=0.0.271",
+    "pygrep>=0.2"
+]
+sugar = [
+    "pytest-sugar==0.9.6"
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+allow-ambiguous-features = true
+
+[tool.hatch.version]
+path = "tests/__init__.py"
+
+[tool.hatch.build]
+skip-excluded-dirs = true
+exclude = [
+    "/tests",
+    "/openapi_example",
+]
+
+[tool.hatch.envs.default]
+python = "3.11"
+skip-install = false
+features = [
+  "dev",
+]
+
+[[tool.hatch.envs.test.matrix]]
+python = ["37", "38", "39", "310", "311", "312"]
+
+[tool.hatch.envs.test.scripts]
+run = "pytest"
+
+[tool.hatch.envs.test-last.scripts]
+run = "pytest"
+
+[tool.pytest.ini_options]
+addopts = [
+    "-m=SANDBOX",
+    "--showlocals",
+    "--force-flaky",
+    "--max-runs=2",
+    "--capture=no",
+#    "-p no:sugar",
+    "-v",
+    "--color=auto",
+    "--alluredir=reports/allure-results",
+#    "--clean-alluredir",
+    "--durations=200",
+    "--durations-min=5.0",
+    "--swagger-report=./reports",
+    "--log-cli-level=WARNING"
+]
+
+console_output_style = 'modern'
+testpaths = [
+    "tests/test_bot_api",
+    "tests/test_guest_api",
+    "tests/test_client_api",
+    "tests/test_service_api"
+]
+python_files = "test_*.py"
+norecursedirs = [
+    ".*",
+    "venv",
+    ".venv",
+    "virtualenv",
+    "src",
+    "*.egg",
+    "dist",
+    "build",
+    ".git",
+    "xslt_templates",
+    ".idea",
+    "reports",
+    "icq",
+    "admin",
+    "files",
+    "cases",
+    "support",
+    "speechtotext",
+    "accounts"
+]
+log_cli = true
+log_cli_level = "WARNING"
+# https://docs.python.org/3/library/logging.html#module-logging
+log_cli_format = "[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%H:%M:%S"
+
+
+
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::urllib3.exceptions.InsecureRequestWarning",
+    "ignore::requests.RequestsDependencyWarning"
+]
+
+markers = [
+    "VKTI: tests for VKTI",
+    "PRE_VKTI: tests for VKTI (preproduction)",
+    "TARM: tests for TARM",
+    "PRE_TARM: tests for TARM (preproduction)",
+    "SANDBOX: tests for SANDBOX",
+    "SAAS: tests for SAAS",
+
+    "last: last tests to start",
+    "STENTOR: tests for stentor service",
+    "DI: tests for DI service",
+    "MINIAPPS: tests for miniapps in Godmod",
+    "Auth: auth tests",
+    "Analytics: tests for analytics in Godmod",
+    "Godmod: tests for Godmod service",
+    "Service: tests for seperate services in backend",
+    "WIM: tests for /wim methods",
+    "STATUS",
+    "SESSION",
+    "REPORT_ABUSE",
+    "RECENTS",
+    "REACTION",
+    "PUSH_NOTIFICATIONS",
+    "BLACKLIST",
+    "PRIVACY",
+    "POLLS",
+    "SCHEDULED",
+    "PENDING",
+    "MEMBERS",
+    "IM",
+    "AIM",
+    "CHAT",
+    "GROUP",
+    "ARCHIVE",
+    "FOLDERS",
+    "DRAFT",
+    "CONTACTS",
+    "CRASH",
+    "SEARCH",
+    "MESSAGES",
+    "CHATS",
+    "GALLERY",
+    "ORGSTRUCTURE",
+    "AS_ADMIN",
+    "AS_UNIT",
+    "AUTH",
+    "SERVICE_API",
+    "SURVEY",
+    "QUESTIONS",
+    "GUEST_API",
+    "MISC",
+    "CHAT_STAMP",
+    "CONFERENCE",
+    "MAIL",
+    "CALENDAR",
+    "BIZ",
+    "USERS",
+    "SETTINGS",
+    "MCHAT",
+    "REPORTS",
+    "EXPO",
+    "DASHBOARD",
+    "OPENSTORE",
+    "STORE",
+    "PERMISSION_TO_TASK",
+    "FEED",
+    "NOTIFICATIONS",
+    "VIP_USERS: tests for communication with VIP users",
+    "Store: tests for stickers",
+    "Survey: tests for polls pro",
+    "RAPI: tests for /rapi methods",
+    "Misc: tests for /misc methods",
+    "Crash: tests for /crash methods",
+    "FILES: tests for /files methods",
+    "BOS: tests for /bos methods",
+    "CLIENT_API: tests for client API",
+    "Guest: tests for guest user API",
+    "BOT_API: tests for Bot API",
+    "BOT",
+    "Antivirus: tests for antivirus check",
+    "CLOUD: tests for cloud file service",
+    "TASKS: tests for tasks",
+    "FILTERS",
+    "SUGGESTS",
+    "INVITATIONS",
+    "THREAD: tests for threads",
+    "PREVIEW",
+    "ANALYTICS",
+    "ADMIN",
+    "STAFFD",
+    "P2P_CALL",
+    "GROUP_CALL",
+    "CONFERENCE_CALL",
+    "CALL_TECH",
+    "CALLS",
+    "AUTH_GUEST",
+    "MESSAGING",
+    "AUTHENTICATION",
+    "RECORDING",
+    "CALL_MODERATION",
+    "STORE_SHOWCASE",
+    "MINIAPP_LINKS",
+    "Regression",
+    "first",
+    "second_to_last"
+]
+
+[tool.ruff]
+
+cache-dir = "~/.cache/ruff"
+
+src = ["tests", "admin", "pyvkteamsclient", "di", "conftest.py"]
+
+fix = false
+show-fixes = true
+
+#format = "gitlab"
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "venv",
+    "virtualenv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+line-length = 120
+
+# Assume Python 3.10.
+target-version = "py311"
+
+[tool.ruff.lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`)  codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = [
+    "E", "F", "W", "B", "A",
+    "COM", "C4", "ICN", "LOG", "PIE", "T20", "PT", "Q", "RSE", "SLF", "SIM", "TCH", "PTH", "ERA", "RUF",
+    "TD", "FIX",
+]
+ignore = [
+    "RUF001",
+    "RUF002",
+    "RUF100",
+    "COM812",
+    "PIE810",
+    "PT011",
+    "PT012",
+    "TD003",
+    "FIX002",
+    "B017",
+    "RUF003"
+]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["src/foo"]
+sources = ["src"]
+
+[lint]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+unfixable = []
+
+ignore = []
+
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = ["E", "F"]
+
+task-tags = ["TODO", "FIXME"]
+
+[lint.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[lint.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
+
+[lint.pylint]
+max-returns = 1

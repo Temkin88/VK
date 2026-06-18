@@ -1,0 +1,25 @@
+FROM registry-gitlab.corp.mail.ru/imqa/release_autotests/python:3.11-buster AS build
+
+WORKDIR /
+
+ENV VIRTUAL_ENV=/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+RUN apt-get update && \
+    pip install virtualenv==20.23.0  --no-cache-dir --quiet && \
+    virtualenv $VIRTUAL_ENV && \
+    $VIRTUAL_ENV/bin/python -m pip install --upgrade pip==23.1.2 --no-cache-dir --quiet --require-virtualenv && \
+    $VIRTUAL_ENV/bin/python -m pip install ruff==0.0.278
+
+FROM registry-gitlab.corp.mail.ru/imqa/release_autotests/python:3.11-buster
+
+WORKDIR /
+
+ENV VIRTUAL_ENV=/venv
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+COPY --from=build $VIRTUAL_ENV $VIRTUAL_ENV
+COPY ./pyproject.toml .
+
+RUN apt-get update && \
+    apt-get install openssh-client

@@ -1,0 +1,6 @@
+{
+  "default": {
+    "action": "disconnect",
+    "processing_time": "10s"
+  }
+}

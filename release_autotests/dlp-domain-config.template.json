@@ -1,0 +1,162 @@
+{
+    "_comment": "Ключи начинающиеся с символа _ являются коментариями и будут пропущены тестами. Для сохранения структуры файла конфигурации рекомендуется использовать данный способкоментирования строк в место удаления",
+    "SANDBOX": {
+        "adapters": {
+            "default": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге_регрессионного стенда. Важно не забыть в админке supply-server выставить атрибут vip_type_в соответствующее значение для пользователей из списка исключенных в конфиге вахтера",
+                "vip_type": "VIP1",
+                "domain": "autotest.clients"
+            },
+            "strategy_on_fail_block": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге регрессионного стенда",
+                "domain": "autotest.clients"
+            },
+            "strategy_on_fail_ok": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге регрессионного стенда",
+                "domain": "autotest-01.clients"
+            },
+            "external_files": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге_регрессионного стенда",
+                "domain": "autotest-02.clients"
+            },
+            "internal_files": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге регрессионного стенда",
+                "domain": "autotest.clients"
+            },
+            "debug_mode_true": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге регрессионного стенда",
+                "domain": "autotest-04.clients"
+            },
+            "excluded_users": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге_регрессионного стенда. Важно не забыть в админке supply-server выставить атрибут vip_type_в соответствующее значение для пользователей из списка исключенных в конфиге вахтера",
+                "vip_type": "VIP1",
+                "domain": "autotest-03.clients"
+            },
+            "_file_attributes_blocking": {
+                "_comment": "Эти тесты требуют переопределения конфига вахтера или файлзов для рассмотрения каждого тестового случая и не подходят для проверки на дефолтном конфиге регрессионного стенда",
+                "domain": "autotest-03.clients",
+                "file_limits": {
+                    "image/png": "200KiB",
+                    "image/jpeg": "0",
+                    "others": "1MiB"
+                }
+            },
+            "_whitelisting": {
+                "_comment": "Эти тесты требуют переопределения конфига вахтера или файлзов для рассмотрения каждого тестового случая и не подходят для проверки на дефолтном конфиге регрессионного стенда",
+                "domain": "autotest.clients",
+                "_trusted_subnets": [
+                    "1.1.1.1/24"
+                ],
+                "trusted_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 YaBrowser/25.6.0.0 Safari/537.36",
+                "_untrusted_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+            },
+            "_domains_check_false": {
+                "_comment": "Эти тесты требуют переопределения конфига вахтера",
+                "domain": "autotest.clients",
+                "domains": [
+                    "autotest-01.clients",
+                    "autotest-02.clients"
+                ]
+            },
+            "domains_check_true": {
+                "_comment": "Эти тесты можно запускать в общей пачке тестов на дефолтном конфиге регрессионного_стенда",
+                "domain": "autotest.clients",
+                "domains": [
+                    "autotest-01.clients",
+                    "autotest-02.clients"
+                ]
+            }
+        },
+        "headers": {
+            "_comment1": "При проверке на регрессионом стенде с использованием adapter_chooser и включенной опцией check_access_level, тут нужно указать user-aget для internal сессии",
+            "internal": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 YaBrowser/25.6.0.0 Safari/537.36",
+            "_comment2": "При проверке на регрессионом стенде с использованием adapter_chooser и включенной опцией check_access_level, тут нужно указать user-aget для external сессии. Eсли браузер chrome не входит internal, то эту опцию можно не указывать",
+            "external": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+        }
+    },
+    "SAAS": {
+        "adapters": {
+            "_default": {
+                "domain": "dlpautotest.bizml.ru",
+                "vip_type": "VIP1"
+            },
+            "excluded_users": {
+                "domain": "dlpautotest.bizml.ru",
+                "vip_type": "VIP1"
+            },
+            "_strategy_on_fail_block": {
+                "domain": "dlpautotest.bizml.ru"
+            },
+            "_whitelisting": {
+                "_comment": "Эти тесты требуют переопределения конфига вахтера или файлзов для рассмотрения каждого тестового случая и не подходят для проверки на дефолтном конфиге регрессионного стенда",
+                "domain": "dlpautotest.bizml.ru",
+                "_trusted_subnets": [
+                    "1.1.1.1/24"
+                ],
+                "trusted_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 YaBrowser/25.6.0.0 Safari/537.36",
+                "_untrusted_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+            },
+            "file_attributes_blocking": {
+                "_comment": "Эти тесты требуют переопределения конфига вахтера или файлзов для рассмотрения каждого тестового случая и не подходят для проверки на дефолтном конфиге регрессионного стенда",
+                "domain": "dlpautotest.bizml.ru",
+                "file_limits": {
+                    "image/png": "200KiB",
+                    "image/jpeg": "0",
+                    "others": "1MiB"
+                }
+            }
+        },
+        "headers": {
+            "internal": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 YaBrowser/25.6.0.0 Safari/537.36",
+            "external": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+        }
+    },
+    "PRE_SAAS": {
+        "adapters": {
+            "_default": {
+                "domain": "dlpautotest.bizml.ru",
+                "vip_type": "VIP1"
+            },
+            "excluded_users": {
+                "domain": "dlpautotest.bizml.ru",
+                "vip_type": "VIP1"
+            },
+            "_strategy_on_fail_block": {
+                "domain": "dlpautotest.bizml.ru"
+            },
+            "_whitelisting": {
+                "_comment": "Эти тесты требуют переопределения конфига вахтера или файлзов для рассмотрения каждого тестового случая и не подходят для проверки на дефолтном конфиге регрессионного стенда",
+                "domain": "dlpautotest.bizml.ru",
+                "_trusted_subnets": [
+                    "1.1.1.1/24"
+                ],
+                "trusted_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 YaBrowser/25.6.0.0 Safari/537.36",
+                "_untrusted_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+            },
+            "file_attributes_blocking": {
+                "_comment": "Эти тесты требуют переопределения конфига вахтера или файлзов для рассмотрения каждого тестового случая и не подходят для проверки на дефолтном конфиге регрессионного стенда",
+                "domain": "dlpautotest.bizml.ru",
+                "file_limits": {
+                    "image/png": "200KiB",
+                    "image/jpeg": "0",
+                    "others": "1MiB"
+                }
+            }
+        },
+        "headers": {
+            "internal": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 YaBrowser/25.6.0.0 Safari/537.36",
+            "external": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+        }
+    },
+    "PRE_TARM": {
+        "adapters": {
+            "default": {
+                "domain": "dlpautotest-01.tppr.vmailru.net"
+            }
+        },
+        "headers": {
+            "internal": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 YaBrowser/25.6.0.0 Safari/537.36",
+            "external": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+        }
+    }
+}

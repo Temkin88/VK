@@ -1,0 +1,19 @@
+2026-06-03 16:57:44.688909
+POST https://imqa-supply.mail.msk/api/accounts/acquire?sso=False&swa=False&user_domain=swadup.auth-test.vkteams.vkwm.ru&vip_type=BASIC&is_admin=False
+User-Agent: python-requests/2.32.5
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+X-Session-Id: 7cf6782a-6851-40dd-9162-f7b0eaaf8bfe
+Content-Length: 0
+
+404 Not Found
+Server: nginx/1.28.0
+Date: Wed, 03 Jun 2026 13:57:44 GMT
+Content-Type: application/json
+Content-Length: 48
+Connection: keep-alive
+x-request-id: a7bfb47ca85f4a95806d8698dc85884e
+x-trace-id: d813c31eb49aec69eece8086b8fda23b
+
+{"detail":"Free accounts not found in database"}

@@ -1,0 +1,135 @@
+ Cached TGT:
+
+ServiceName        : krbtgt
+TargetName (SPN)   : krbtgt
+ClientName         : Admin
+DomainName         : AD2013.ON-PREMISE.RU
+TargetDomainName   : AD2013.ON-PREMISE.RU
+AltTargetDomainName: AD2013.ON-PREMISE.RU
+Ticket Flags       : 0x40c10000 -> forwardable renewable initial name_canonicalize
+Session Key        : KeyType 0x12 - AES-256-CTS-HMAC-SHA1-96
+                   : KeyLength 32 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+00
+StartTime          : 4/16/2026 18:50:38 (local)
+EndTime            : 4/17/2026 4:50:38 (local)
+RenewUntil         : 4/23/2026 17:42:23 (local)
+TimeSkew           :  + 0:00 minute(s)
+EncodedTicket      : (size: 1464)
+0000  61 82 05 b4 30 82 05 b0:a0 03 02 01 05 a1 16 1b  a...0...........
+0010  14 41 44 32 30 31 33 2e:4f 4e 2d 50 52 45 4d 49  .AD2013.ON-PREMI
+0020  53 45 2e 52 55 a2 29 30:27 a0 03 02 01 02 a1 20  SE.RU.)0'...... 
+0030  30 1e 1b 06 6b 72 62 74:67 74 1b 14 41 44 32 30  0...krbtgt..AD20
+0040  31 33 2e 4f 4e 2d 50 52:45 4d 49 53 45 2e 52 55  13.ON-PREMISE.RU
+0050  a3 82 05 64 30 82 05 60:a0 03 02 01 12 a1 03 02  ...d0..`........
+0060  01 02 a2 82 05 52 04 82:05 4e ca 1b a5 9b 7a dd  .....R...N....z.
+0070  91 b1 90 08 40 f5 09 86:af e1 47 6b 8f 86 07 28  ....@.....Gk...(
+0080  a2 e7 9c 98 0c 7f 01 ed:ae 56 6d e1 78 16 b6 81  .........Vm.x...
+0090  77 37 50 84 1c 6b db e6:be 66 25 4a df 6b ae d1  w7P..k...f%J.k..
+00a0  eb 4c 88 ac 84 63 d8 2f:87 d4 98 ec 89 6b b8 3a  .L...c./.....k.:
+00b0  8b 76 b6 43 0b 7b bf b5:8b 01 3a f6 79 6a 32 b3  .v.C.{....:.yj2.
+00c0  94 9a ae 38 33 71 52 48:e0 11 00 36 d1 6a 5d 91  ...83qRH...6.j].
+00d0  50 ed 96 b9 91 94 cc 8b:e7 c5 82 2a f6 29 07 c1  P..........*.)..
+00e0  90 ac dd 61 00 8a 24 ac:5c 1b e5 15 b4 0f d7 60  ...a..$.\......`
+00f0  5d 35 e8 12 0d fb 7a 20:5c f9 39 23 42 86 c4 f5  ]5....z \.9#B...
+0100  2d 46 64 b4 79 fa 2f 6e:e8 10 1b 16 55 bd 48 c3  -Fd.y./n....U.H.
+0110  d8 c7 0b e0 6d 56 99 57:fb 78 d1 11 7c 9c 2f 32  ....mV.W.x..|./2
+0120  fa 18 ed e7 a5 a2 09 c3:5b 2c 27 2d 38 fd 84 67  ........[,'-8..g
+0130  c4 c7 50 67 35 04 ef e1:f4 03 d6 33 76 36 19 3c  ..Pg5......3v6.<
+0140  e4 68 0a 2a 8b f3 ac bf:d9 cc 10 86 34 f5 96 b0  .h.*........4...
+0150  98 ab e8 b0 38 44 e9 ba:1c 03 72 60 45 1f d9 17  ....8D....r`E...
+0160  bd c6 54 82 5f 9c e5 c3:08 8c 2c ce 71 13 00 bc  ..T._.....,.q...
+0170  ef f0 9c 88 e8 15 b2 9f:ea 87 f9 34 77 74 58 f4  ...........4wtX.
+0180  93 d1 cf a9 71 6f c0 d4:9f 8b 32 67 e0 95 08 df  ....qo....2g....
+0190  11 ba 07 22 76 9b 3e 61:0c c9 13 d7 1d 06 28 ff  ..."v.>a......(.
+01a0  b9 2e 13 9d 59 3c 26 27:63 02 1f 17 7c 5f 09 d0  ....Y<&'c...|_..
+01b0  e2 e8 fa 30 22 01 c2 8f:d5 42 81 21 7c b2 7e ea  ...0"....B.!|.~.
+01c0  6e 79 05 80 4a 6d 5b 45:5f 5d 5a d3 fa 3b 96 4b  ny..Jm[E_]Z..;.K
+01d0  32 17 d0 f6 37 08 05 36:da d4 71 75 6b 5f 5c b1  2...7..6..quk_\.
+01e0  c0 60 6e ee e1 3c a7 f8:53 f4 dc 0e 4c 68 f0 20  .`n..<..S...Lh. 
+01f0  f8 36 37 ae e8 0c a6 b2:e1 89 68 c2 70 49 21 ff  .67.......h.pI!.
+0200  97 30 da 01 0e 14 5f 90:45 be 27 6d e8 e8 6f 3f  .0...._.E.'m..o?
+0210  5d 3c c5 96 ed 66 16 c3:3a bd 0d f5 88 11 60 73  ]<...f..:.....`s
+0220  e8 e3 42 4f fd b4 fd 83:df 6b 32 a0 0c 76 52 5e  ..BO.....k2..vR^
+0230  c4 ad aa 88 5b 68 34 8c:2c 84 11 f8 a1 e9 ad 90  ....[h4.,.......
+0240  b7 94 4a e0 f7 f3 96 59:9c 9a c0 1b f1 ce 7f 09  ..J....Y........
+0250  7e af 65 35 87 f5 05 44:62 76 5d b0 46 6d ac f1  ~.e5...Dbv].Fm..
+0260  24 a8 81 24 91 0f 51 a9:e6 14 75 4b 86 3c 14 55  $..$..Q...uK.<.U
+0270  6a 95 40 a0 30 7c cf 1b:67 f6 5f 17 32 6c 30 f3  j.@.0|..g._.2l0.
+0280  52 5e 5b 9e 30 1f fc fe:94 42 e8 e8 e0 eb 63 bb  R^[.0....B....c.
+0290  8a d5 d9 b3 bf ef f1 8f:8d 98 4a d1 b4 47 39 21  ..........J..G9!
+02a0  28 fc 37 1c 99 0d bf 99:5f 89 7f 18 6b 2e f5 af  (.7....._...k...
+02b0  96 3e a0 9e 96 f2 fa 8b:3a 6b 2f 9b 90 2a df 3e  .>......:k/..*.>
+02c0  17 64 9a 8f 07 b2 61 83:8e 07 fa 7e 4f 40 45 4f  .d....a....~O@EO
+02d0  51 d2 f7 24 1c 67 b2 3e:fd 4a a5 2a 68 22 f8 5b  Q..$.g.>.J.*h".[
+02e0  8a f9 11 6b 14 58 16 dc:87 8d 65 47 1f 39 99 30  ...k.X....eG.9.0
+02f0  04 df 1a 44 e5 fc 20 72:da 07 2a 11 d2 15 be 77  ...D.. r..*....w
+0300  67 64 17 12 24 4d d8 d9:89 c3 a0 ae da ee ea 47  gd..$M.........G
+0310  21 1a 2e b1 18 7b 80 9d:34 27 b0 b0 4b 83 64 93  !....{..4'..K.d.
+0320  ad c9 b7 08 3e a1 7f 2b:d4 cd f5 ed 0c 92 e3 1c  ....>..+........
+0330  f3 2a 0d 1e 96 6b 18 50:cc f4 29 00 f9 3a e5 78  .*...k.P..)..:.x
+0340  61 5e b9 c3 c1 de 18 20:90 12 c5 35 8d 47 01 47  a^..... ...5.G.G
+0350  f6 f4 77 32 6e 49 4b b0:e7 02 34 64 d6 6c 81 28  ..w2nIK...4d.l.(
+0360  e6 2b a0 80 b5 f2 f5 e3:c9 71 41 96 e2 0e eb 44  .+.......qA....D
+0370  90 ae f8 d3 a6 b5 73 b2:48 4f 7c 22 d5 c8 fb e9  ......s.HO|"....
+0380  47 4f c9 5e b6 33 c7 46:98 62 68 95 06 c1 89 bc  GO.^.3.F.bh.....
+0390  d5 5f 9d 70 fe 98 f7 4f:b6 66 97 03 df 57 5d 65  ._.p...O.f...W]e
+03a0  15 46 97 ec 0b 15 f7 22:b5 b3 02 82 fa 5c bf 11  .F.....".....\..
+03b0  33 3a 09 f4 db 2b c2 99:d8 a1 3d 17 c7 63 42 05  3:...+....=..cB.
+03c0  10 fa 5c 74 e0 30 2a fe:d2 6c 16 81 c5 98 32 8d  ..\t.0*..l....2.
+03d0  f9 ba b0 a6 1c c9 d2 4d:92 b4 58 bb 8e a4 75 7f  .......M..X...u.
+03e0  5a 04 b7 27 d7 13 af e6:28 3c f0 76 8b 9d 5a b1  Z..'....(<.v..Z.
+03f0  59 ed 1b 72 2c 93 66 8e:a9 21 56 48 ad aa e9 76  Y..r,.f..!VH...v
+0400  6a d0 d2 d1 56 d5 b3 6d:44 2f b4 c1 a3 e7 52 aa  j...V..mD/....R.
+0410  25 a5 3d a0 62 ed 49 20:e7 be cf bd 2e e6 08 7b  %.=.b.I .......{
+0420  cc 0e 90 25 3f 17 d6 c9:61 d1 11 d9 42 53 8c 11  ...%?...a...BS..
+0430  5c ed a4 59 98 c6 46 bf:36 d8 6a fd 14 cb 7a b4  \..Y..F.6.j...z.
+0440  c6 e5 69 69 58 bc 50 c5:0e 2a dc cf 0d ab 29 d9  ..iiX.P..*....).
+0450  a4 c4 49 7a c0 e1 d4 5c:47 12 85 69 ee ae 1e 88  ..Iz...\G..i....
+0460  b4 34 1c 3e cf 09 23 2d:57 13 a5 d0 50 5c 58 86  .4.>..#-W...P\X.
+0470  d7 d6 08 db e8 eb d5 5c:a5 e6 3e 3f 55 51 0e 68  .......\..>?UQ.h
+0480  ce c5 68 6e 6b 33 0e 59:c1 53 b1 27 a4 6e 28 07  ..hnk3.Y.S.'.n(.
+0490  a1 9f 85 ac 40 d4 4d 19:a8 a3 4f dd a9 d7 d2 f9  ....@.M...O.....
+04a0  e8 14 3f 6d 8a c6 30 ab:f1 8b d7 1f 3e 00 13 3a  ..?m..0.....>..:
+04b0  c4 97 08 94 1a dd e7 1b:66 ad 8e 3b 58 64 bb 3c  ........f..;Xd.<
+04c0  4f 28 99 d7 a6 51 47 de:c7 f7 ca 6e 78 e1 94 6c  O(...QG....nx..l
+04d0  b9 0e 6a 87 02 61 43 f0:c7 02 78 3b 1b a3 8a 88  ..j..aC...x;....
+04e0  d5 a1 8d fb ff 65 24 06:7f 3c e1 f2 a2 03 2e 24  .....e$..<.....$
+04f0  e0 05 22 81 68 74 29 57:c8 48 63 f4 4f 0d b5 40  ..".ht)W.Hc.O..@
+0500  bb e9 40 23 e7 42 31 20:e3 3b 78 79 9c 1f b0 a9  ..@#.B1 .;xy....
+0510  37 8e 21 7d 41 d9 67 8c:8d 99 4c ed e5 04 de 9f  7.!}A.g...L.....
+0520  5b a9 e7 5e 42 0e 34 a8:4d 3a 72 d6 39 46 28 23  [..^B.4.M:r.9F(#
+0530  42 b4 c0 2c 80 60 f9 cb:10 5d 04 7c 7f 4a f0 4a  B..,.`...].|.J.J
+0540  50 32 fd 78 48 19 6c 8a:68 93 f4 cd 63 52 b4 42  P2.xH.l.h...cR.B
+0550  06 b0 70 73 42 ed 4a cd:bb 95 01 f1 8e be 42 3d  ..psB.J.......B=
+0560  79 a2 14 88 82 d7 d4 aa:a3 4e fd 67 71 f6 c4 dc  y........N.gq...
+0570  63 73 d7 43 6a 4e 27 6e:95 45 68 72 ad c6 7e f1  cs.CjN'n.Ehr..~.
+0580  95 98 53 6a bb a1 d7 f6:3b 00 4e 98 f2 c3 75 66  ..Sj....;.N...uf
+0590  58 c2 43 90 cf 0b 64 cf:dd c1 31 af 22 84 58 f8  X.C...d...1.".X.
+05a0  64 1e 8f 15 80 d6 91 ba:3b 82 df 7a 9b a7 25 52  d.......;..z..%R
+05b0  22 7e 53 b0 fc 7b 25 10:                         "~S..{%.
+ 
+
+
+ Cached Tickets: (2)
+
+#0>	Client: Admin @ AD2013.ON-PREMISE.RU
+	Server: krbtgt/AD2013.ON-PREMISE.RU @ AD2013.ON-PREMISE.RU
+	KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
+	Ticket Flags 0x40c10000 -> forwardable renewable initial name_canonicalize
+	Start Time: 4/16/2026 18:50:38 (local)
+	End Time:   4/17/2026 4:50:38 (local)
+	Renew Time: 4/23/2026 17:42:23 (local)
+	Session Key Type: AES-256-CTS-HMAC-SHA1-96
+	Cache Flags: 0x1 -> PRIMARY
+	Kdc Called: DEV-MAIL-EXCH-1
+
+#1>	Client: Admin @ AD2013.ON-PREMISE.RU
+	Server: HTTP/vkwm-01-pub.release.vkwm.ru @ AD2013.ON-PREMISE.RU
+	KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
+	Ticket Flags 0x40810000 -> forwardable renewable name_canonicalize
+	Start Time: 4/16/2026 18:50:38 (local)
+	End Time:   4/17/2026 4:50:38 (local)
+	Renew Time: 4/23/2026 17:42:23 (local)
+	Session Key Type: AES-256-CTS-HMAC-SHA1-96
+	Cache Flags: 0
+	Kdc Called: DEV-MAIL-EXCH-1

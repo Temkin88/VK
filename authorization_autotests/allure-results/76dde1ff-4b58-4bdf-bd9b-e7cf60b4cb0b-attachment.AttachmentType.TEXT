@@ -1,0 +1,22 @@
+2026-06-03 16:57:34.425717
+POST https://imqa-supply.mail.msk/api/session
+User-Agent: imcommonsupplyclient.session/2026.5.1
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+X-Api-Token: No token provided
+Content-Length: 159
+Content-Type: application/json
+
+{"environment": "SANDBOX", "domain": "u.vkt-auth-test.vkteams.vkwm.ru", "test_platform": "IMSERVER", "max_accounts_count": 50, "only_existing_accounts": false}
+
+200 OK
+Server: nginx/1.28.0
+Date: Wed, 03 Jun 2026 13:57:34 GMT
+Content-Type: application/json
+Content-Length: 336
+Connection: keep-alive
+x-request-id: af9df739523b422bb275ff7ddc90d1e0
+x-trace-id: 5b3b5c0c097debdad3e58d64ce47a5de
+
+{"id":"7cf6782a-6851-40dd-9162-f7b0eaaf8bfe","env":"SANDBOX","main_api":"https://u.vkt-auth-test.vkteams.vkwm.ru","binary_api":"https://ub.vkt-auth-test.vkteams.vkwm.ru","api_version":133,"requester_ip":"172.20.95.16","expires_date":"2026-06-03T17:57:34.384608+03:00","expected_accounts_language":"ru-RU","only_existing_accounts":false}

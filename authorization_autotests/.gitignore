@@ -1,0 +1,12 @@
+.venv
+venv
+.pytest_cache
+.ruff_cache
+__pycache__
+.idea
+reports
+**/.DS_Store
+.vscode
+*~
+.*.swp
+.*.swo

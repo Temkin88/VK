@@ -1,0 +1,23 @@
+curl --request POST \
+  --url 'https://u.vkt-auth-test.vkteams.vkwm.ru/api/v132/wim/aim/startSession?a=%2Fw8BAAAAAADfhgEAAAAAABWFDEC7x0qomSu22i4F%2FB4AAAAfMUBvdHAuYXV0aC10ZXN0LnZrdGVhbXMudmt3bS5ydQAAAAVlbWFpbAAAAAA%3D&assertCaps=094613584C7F11D18222444553540000%2C0946135C4C7F11D18222444553540000%2C0946135b4c7f11d18222444553540000%2C0946135E4C7F11D18222444553540000%2CAABC2A1AF270424598B36993C6231952%2C1f99494e76cbc880215d6aeab8e42268%2CA20C362CD4944B6EA3D1E77642201FD8%2CB5ED3E51C7AC4137B5926BC686E7A60D%2C094613504c7f11d18222444553540000%2C094613514c7f11d18222444553540000%2C094613564c7f11d18222444553540000%2C094613503c7f11d18222444553540000&buildNumber=1&clientName=VK Teams&clientVersion=23.1.0.1&deviceId=75441e50-3e38-11f1-af32-5acb00c93dbb&events=myInfo%2Cpresence%2Cbuddylist%2Ctyping%2ChiddenChat%2Chist%2Cmchat%2CsentIM%2CimState%2CdataIM%2CofflineIM%2CuserAddedToBuddyList%2Cservice%2Clifestream%2Capps%2CpermitDeny%2Cdiff%2CwebrtcMsg&includePresenceFields=aimId%2CiconId%2CbigIconId%2ClargeIconId%2CdisplayId%2Cfriendly%2CofflineMsg%2Cstate%2CstatusMsg%2CuserType%2CphoneNumber%2CcellNumber%2CsmsNumber%2CworkNumber%2CotherNumber%2Ccapabilities%2Cssl%2CabPhoneNumber%2CmoodIcon%2ClastName%2CabPhones%2CabContactName%2Clastseen%2Cmute%2CcounterEnabled%2Clivechat%2Cofficial%2Cpublic%2CautoAddition%2Creadonly%2Cnick%2Cbot&interestCaps=8eec67ce70d041009409a7c1602a5c84%2C094613504c7f11d18222444553540000%2C094613514c7f11d18222444553540000%2C094613564c7f11d18222444553540000&k=on2fah4R-linux&language=ru-RU&mobile=False&sessionTimeout=7200&ts=1776854765&view=online' \
+  --header 'accept: */*' \
+  --header 'accept-language: ru,en;q=0.9' \
+  --header 'content-length: 0' \
+  --header 'content-type: text/plain;charset=UTF-8' \
+  --header 'dnt: 1' \
+  --header 'origin: https://myteam.mail.ru' \
+  --header 'referer: https://myteam.mail.ru/' \
+  --header 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 YaBrowser/25.8.0.0 Safari/537.36'
+
+
+
+curl --request POST \
+  --url 'https://u.vkt-auth-test.vkteams.vkwm.ru/api/v132/wim/aim/startSession?k=ic1zmlWFTdkiTnkLL&deviceId=527989-e45a-a784-b375-013d736e315&events=myInfo&subscriptions=status&sessionTimeout=2592000&a=%2Fw8BAAAAAADfhgEAAAAAAKwtZrIWa0xJrF13Ea2KNlMAAAAfMUBvdHAuYXV0aC10ZXN0LnZrdGVhbXMudmt3bS5ydQAAAAVlbWFpbAAAAAA%3D' \
+  --header 'accept: */*' \
+  --header 'accept-language: ru,en;q=0.9' \
+  --header 'content-length: 0' \
+  --header 'content-type: text/plain;charset=UTF-8' \
+  --header 'dnt: 1' \
+  --header 'origin: https://myteam.mail.ru' \
+  --header 'referer: https://myteam.mail.ru/' \
+  --header 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 YaBrowser/25.8.0.0 Safari/537.36'

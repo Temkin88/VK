@@ -1,0 +1,17 @@
+{
+  "default": {
+    "action": "success"
+  },
+  "conditions": [
+    {
+      "header": "-X-VKWS-Access-Level",
+      "header_value": "external",
+      "action": "success"
+    },
+     {
+      "header": "-X-VKWS-Access-Level",
+      "header_value": "internal",
+      "action": "block"
+    }
+  ]
+}

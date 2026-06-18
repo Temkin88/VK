@@ -1,0 +1,97 @@
+pipeline {
+
+    agent {
+        label 'the_executor'
+    }
+
+    parameters {
+        choice(name: 'ENV_PLATFORM', choices: ['VKTI', 'PRE_VKTI', 'TARM', 'PRE_TARM', 'SANDBOX'], description: 'VKTI, TARM or SANDBOX')
+        string(name: 'SANDBOX', defaultValue: 'vkorobov.v3.im-sandbox.devmail.ru', description: 'Sandbox name')
+        string(name: 'API_VERSION', defaultValue: '86', description: 'API versions')
+        string(name: 'FORCED_IP', defaultValue: '', description: 'IP address for pre-production environments')
+        choice(name: 'LOG_LEVEL', choices: ['WARNING', 'INFO', 'DEBUG'], description: 'Log level in pytest tests')
+        string(name: 'ALLURE_JOB_RUN_ID', defaultValue: '', description: 'Job run ID')
+    }
+
+    options {
+        skipDefaultCheckout()
+        timeout(time: 2, unit: 'HOURS')
+    }
+    environment {
+        ALLURE_JOB_RUN_CHILD = 'true'
+    }
+
+    stages {
+
+        stage ('Checkout') {
+            steps {
+                cleanWs()
+                checkout scm
+            }
+        }
+        stage('Preparing python3 requirements') {
+            steps {
+                script {
+                    try {
+                        sh "apt-get update"
+                        sh "apt-get install python3-venv -yy"
+                    } catch (error) {
+                        println "[WARNING] [apt-get] ${error}"
+                    }
+                }
+                sh "python3 -m venv venv"
+                sh 'venv/bin/pip install -r requirements.txt'
+            }
+        }
+        stage('Building autotests'){
+            steps {
+                script {
+
+                    def now = new Date()
+                    def date_and_time = now.format("yyyy.MM.dd HH:mm")
+                    def date = now.format("yyyy.MM.dd")
+
+                    withAllureUpload(
+                        projectId: '7',
+                        results: [[path: 'reports/allure-results']]
+                    ) {
+                        try {
+                            env.FORCED_IP = params.FORCED_IP
+                            sh "set"
+//                             if (params.ENV_PLATFORM == "SANDBOX" || params.ENV_PLATFORM == "ICQ") {
+//                                 sh "$(pwd)/venv/bin/python -m pytest -m ${params.ENV_PLATFORM} --sandbox ${params.SANDBOX} --api ${params.API_VERSION} -n auto --dist loadfile --force-flaky --max-runs=3 --min-passes=1"
+//                             } else {
+//                                 sh "$(pwd)/venv/bin/python -m pytest -m ${params.ENV_PLATFORM} --sandbox ${params.SANDBOX} --api ${params.API_VERSION} --force-flaky --max-runs=3 --min-passes=1"
+//                             }
+                            sh """venv/bin/python3 -m pytest \
+                                        -m ${params.ENV_PLATFORM} \
+                                        --sandbox ${params.SANDBOX} \
+                                        --api ${params.API_VERSION} \
+                                        --force-flaky --max-runs=3 --min-passes=1 \
+                                        --log-cli-level=${params.LOG_LEVEL}"""
+                            sh """venv/bin/python3 -m pytest \
+                                        -m ${params.ENV_PLATFORM} \
+                                        --lf \
+                                        --sandbox ${params.SANDBOX} \
+                                        --api ${params.API_VERSION} \
+                                        --force-flaky --max-runs=3 --min-passes=1 \
+                                        --log-cli-level=${params.LOG_LEVEL}"""
+                        } catch(Exception exc_n) {
+                            println exc_n
+//                             sh "$(pwd)/venv/bin/python -m pytest --last-failed -m ${params.ENV_PLATFORM} --sandbox ${params.SANDBOX} --api ${params.API_VERSION}"
+                        }
+                    }
+                }
+            }
+        }
+        stage('Archieving HTML report') {
+            steps {
+                script {
+                    archiveArtifacts artifacts: "cov_html/*", fingerprint: false
+                    archiveArtifacts artifacts: "reports/*.html", fingerprint: false
+                    cleanWs()
+                }
+            }
+        }
+    }
+}

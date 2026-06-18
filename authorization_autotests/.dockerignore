@@ -1,0 +1,16 @@
+.pytest_cache
+.ruff_cache
+.gitlab-ci.yml
+.coverage
+.gitignore
+cov_html
+reports/**/*
+virtualenv
+venv
+pipelines/Jenkinsfile
+pipelines/Nodefile.groovy
+README.md
+docker-compose.yml
+state.json
+docker
+Dockerfile

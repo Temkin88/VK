@@ -1,0 +1,6 @@
+{
+  "default": {
+    "action": "block",
+    "processing_time": "0s"
+  }
+}

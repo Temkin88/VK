@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  autotest:
+    image: registry-gitlab.corp.mail.ru/imdevops/docker/autotest:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    container_name: autotests
+    network_mode: host
+    volumes:
+      - "${PWD}/reports:/workdir/reports:rw"
+      - "${PWD}/tests:/workdir/tests:rw"
+    environment:
+      TZ: Europe/Moscow
+      ALLURE_ENDPOINT: https://allure.vk.team
+      ALLURE_PROJECT_ID: 7

@@ -1,0 +1,66 @@
+stages:
+  - ruff
+  - lint
+  - build
+  - build_envs
+
+ruff:project:
+  image: registry-gitlab.corp.mail.ru/imqa/release_autotests:ruff
+  tags:
+    - imdevops
+  variables:
+    DEBUG: 1
+    GIT_SUBMODULE_FORCE_HTTPS: "true"
+  stage: ruff
+  before_script:
+    - apt-get update && apt-get install ssh-client
+    - git config --global url."https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.corp.mail.ru/".insteadOf "git@gitlab.corp.mail.ru:"
+    - git submodule sync --recursive
+    - git submodule update --init --remote --recursive
+    - git config --file .gitmodules -l
+    - pip install -U 'ruff==0.12.*'
+  script:
+    - ruff check .
+
+lint:dockerfile:
+  image: ${CI_REGISTRY}/imdevops/docker/hadolint:v2.12.0
+  tags:
+    - imdevops
+  stage: lint
+  script: hadolint Dockerfile
+
+docker_build:latest:
+  stage: build
+  tags:
+    - imdevops
+  variables:
+    GIT_STRATEGY: clone
+    DOCKER_HOST: unix:///var/run/docker.sock
+    IMAGE_TYPE: latest
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - |
+      export DOCKER_TAG=$(date +"%Y%m%d.%H%M")-${CI_COMMIT_SHORT_SHA}
+      export DOCKER_REPO=${CI_REGISTRY}/imdevops/docker/
+      export TARGET=autotest
+      docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+      docker pull registry-gitlab.corp.mail.ru/imqa/release_autotests/python:3.11-buster
+      docker login -u $IMDEVOPS_REGISTRY_USER -p $IMDEVOPS_REGISTRY_TOKEN $CI_REGISTRY
+      docker build --build-arg ALLURE_TOKEN=$IMBOT_ALLURE_ACCESS_TOKEN -f Dockerfile -t ${DOCKER_REPO}${TARGET}:${DOCKER_TAG} -t ${DOCKER_REPO}${TARGET}:latest -t ${DOCKER_REPO}${TARGET}:$(date +"%y.%-m") .;
+      docker push ${DOCKER_REPO}${TARGET}:latest
+      docker push ${DOCKER_REPO}${TARGET}:${DOCKER_TAG}
+      docker push ${DOCKER_REPO}${TARGET}:$(date +"%y.%-m")
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: on_success
+      changes:
+        - Dockerfile
+        - DockerfileEnv
+        - DockerfileRuff
+        - myteam-config-json/**/*.json
+        - support/**/*.*
+        - tests/**/*.py
+        - conftest.py
+    - when: never
+  needs:
+    - lint:dockerfile

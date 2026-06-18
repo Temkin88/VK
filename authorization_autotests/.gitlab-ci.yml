@@ -1,0 +1,137 @@
+stages:
+  - lint
+  - build
+  - test
+.mr_job_rules:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: on_success
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: on_success
+    - when: never
+
+# Те же условия, но job создаётся как manual
+.mr_manual_job_rules:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: manual
+      allow_failure: false
+    - if: '$CI_COMMIT_BRANCH == "master"'
+      when: manual
+      allow_failure: false
+    - when: never
+
+lint:dockerfile:
+  image: ${CI_REGISTRY}/imdevops/docker/hadolint:v2.12.0
+#  image: ${CI_REGISTRY}/mail-admins/images/system/almalinux9:9.5-20260528-1
+  tags:
+    - autotest
+  stage: lint
+  script: hadolint Dockerfile
+  rules: !reference [.mr_job_rules, rules]
+
+build:
+  stage: build
+  image: $CI_REGISTRY/imdevops/imhub/images/dind:latest
+#  image: ${CI_REGISTRY}/mail-admins/images/system/almalinux9:9.5-20260528-1
+  tags:
+    - autotest
+  needs:
+    - lint:dockerfile
+  variables:
+    GIT_STRATEGY: clone
+    DOCKER_HOST: unix:///var/run/docker.sock
+    IMAGE_TYPE: latest
+    GIT_SUBMODULE_STRATEGY: recursive
+  script:
+    - |
+      export DOCKER_BUILDKIT=0
+      docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+      docker build -f Dockerfile -t $CI_REGISTRY/imqa/authorization_autotests:latest .
+      docker push $CI_REGISTRY/imqa/authorization_autotests:latest
+  rules: !reference [.mr_job_rules, rules]
+
+test_teams:
+  stage: test
+  tags:
+    - autotest
+  needs:
+    - build
+  image: $CI_REGISTRY/imqa/authorization_autotests:latest
+  variables:
+    ALLURE_ENDPOINT: https://allure.vkteam.ru
+    ALLURE_PROJECT_ID: 7
+    ALLURE_RESULTS: reports/allure-results
+  before_script:
+    - curl -fsSL "https://nexus.vkteam.ru/repository/raw-github-remote/allure-framework/allurectl/releases/download/2.18.0/allurectl_linux_amd64" -o allurectl
+    - chmod +x allurectl
+  script:
+    - 'curl -L https://u.vkt-auth-test.vkteams.vkwm.ru/myteam-config.json'
+    - 'curl "$ALLURE_ENDPOINT/api/uaa/account/me" -H "Authorization: Api-Token $ALLURE_TOKEN" -v'
+    - python3.14 -m pytest --help | egrep sandbox || echo "Failed to run pytest"
+    - ls -l
+    - ./allurectl --log DEBUG watch -- python3.14 -m pytest -m TEAMS --sandbox https://auth-test.vkteams.vkwm.ru --alluredir=${ALLURE_RESULTS}
+  rules: !reference [.mr_manual_job_rules, rules]
+
+test_ws_integration:
+  stage: test
+  tags:
+    - autotest
+  needs:
+    - build
+  image: $CI_REGISTRY/imqa/authorization_autotests:latest
+  variables:
+    ALLURE_ENDPOINT: https://allure.vkteam.ru
+    ALLURE_PROJECT_ID: 977
+    ALLURE_RESULTS: reports/allure-results
+  before_script:
+    - curl -fsSL "https://nexus.vkteam.ru/repository/raw-github-remote/allure-framework/allurectl/releases/download/2.18.0/allurectl_linux_amd64" -o allurectl
+    - chmod +x ./allurectl
+  script:
+    - 'curl "$ALLURE_ENDPOINT/api/uaa/account/me" -H "Authorization: Api-Token $ALLURE_TOKEN" -v'
+    - python3.14 -m pytest --help | egrep sandbox || echo "Failed to run pytest"
+    - ls -l
+    - ./allurectl watch -- python3.14 -m pytest -m WS_INTEGRATION --sandbox https://auth-test.vkteams.vkwm.ru --alluredir=${ALLURE_RESULTS}
+  rules:
+#    - if: '$RUN_WS_JOB == "ws_integration"'
+#      when: on_success
+#    - when: never
+    !reference [.mr_manual_job_rules, rules]
+
+test_ws_onpremdev:
+  stage: test
+  tags:
+    - autotest
+  needs:
+    - build
+  image: $CI_REGISTRY/imqa/authorization_autotests:latest
+  variables:
+    ALLURE_ENDPOINT: https://allure.vkteam.ru
+    ALLURE_PROJECT_ID: 979
+    ALLURE_RESULTS: reports/allure-results
+  before_script:
+    - curl -fsSL "https://nexus.vkteam.ru/repository/raw-github-remote/allure-framework/allurectl/releases/download/2.18.0/allurectl_linux_amd64" -o allurectl
+    - chmod +x allurectl
+  script:
+    - 'curl "$ALLURE_ENDPOINT/api/uaa/account/me" -H "Authorization: Api-Token $ALLURE_TOKEN" -v'
+    - python3.14 -m pytest --help | egrep sandbox || echo "Failed to run pytest"
+    - ls -l
+    - ./allurectl --log DEBUG watch -- python3.14 -m pytest -m WS_INTEGRATION --sandbox https://auth-test.vkteams.vkwm.ru --alluredir=${ALLURE_RESULTS}
+  rules:
+#    - if: '$RUN_WS_JOB == "ws_onpremdev"'
+#      when: on_success
+#    - when: never
+    !reference [.mr_manual_job_rules, rules]
+
+#test_ws_trigger_manual:
+#  stage: test
+#  rules:
+#    - when: manual
+#  trigger:
+#    project: $CI_PROJECT_PATH
+#    branch: $CI_COMMIT_REF_NAME
+#    strategy: depend
+#  parallel:
+#    matrix:
+#      - RUN_WS_JOB: "ws_integration"
+#      - RUN_WS_JOB: "ws_onpremdev"
