@@ -1,0 +1,10 @@
+aenum==3.1.16
+loguru==0.7.3
+openapi-client @ git+https://git:nLALFsbFTb8z37xMzvMR@gitlab.corp.mail.ru/imqa/allureclient.git
+peewee==3.18.0
+psycopg2==2.9.10
+pydantic==1.10.22
+python-dateutil==2.9.0.post0
+six==1.17.0
+typing_extensions==4.13.2
+urllib3==2.0.7

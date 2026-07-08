@@ -1,0 +1,3 @@
+[submodule "pyvkteamsclient"]
+	path = pyvkteamsclient
+	url = git@gitlab.corp.mail.ru:imqa/pyvkteamsclient.git

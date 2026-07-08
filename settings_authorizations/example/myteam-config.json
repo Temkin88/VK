@@ -1,0 +1,317 @@
+{
+  "api-version": 133,
+  "voip-api-version": 2,
+  "statistics": true,
+  "external-statistics-enabled": true,
+  "voip-config": {
+    "callstat.impl": "callmon"
+  },
+  "voip-noise-suppress-enabled": true,
+  "calls-config": {
+    "voip-api-version": 2,
+    "preview-enabled": true,
+    "background-blur-enabled": true,
+    "recording-enabled": true,
+    "moderation-enabled": true,
+    "webinar-mode-enabled": true,
+    "chats-enabled": true,
+    "default-call-start-confirmation-disabled": true
+  },
+  "mini-apps": {
+    "tasks-enabled": true,
+    "organization-structure-enabled": true,
+    "calendar-enabled": true
+  },
+  "api-urls": {
+    "main-api": "https://u.vkt-zakhtarenko.swa.vkwm.ru",
+    "main-binary-api": "https://ub.vkt-zakhtarenko.swa.vkwm.ru",
+    "stroma-api": "https://u.vkt-zakhtarenko.swa.vkwm.ru"
+  },
+  "stroma-enabled": true,
+  "messenger-silent-enabled": true,
+  "base-urls": {
+    "files-parsing": {
+      "main": "https://files-n.vkt-zakhtarenko.swa.vkwm.ru/get"
+    },
+    "stickerpack-sharing": {
+      "main": "https://s.vkt-zakhtarenko.swa.vkwm.ru/s"
+    },
+    "profile": {
+      "main": "https://u.vkt-zakhtarenko.swa.vkwm.ru/profile"
+    },
+    "vcs-room": {
+      "main": "https://call.vkt-zakhtarenko.swa.vkwm.ru/"
+    },
+    "miniapp-sharing": {
+      "main": "https://u.vkt-zakhtarenko.swa.vkwm.ru/miniapp"
+    },
+    "survey": {
+      "main": "https://survey.vkt-zakhtarenko.swa.vkwm.ru/"
+    }
+  },
+  "templates-urls": {
+    "files": "https://u.vkt-zakhtarenko.swa.vkwm.ru",
+    "files-parsing": "https://files-n.vkt-zakhtarenko.swa.vkwm.ru/get",
+    "stickerpack-sharing": "https://s.vkt-zakhtarenko.swa.vkwm.ru/s",
+    "profile": "https://u.vkt-zakhtarenko.swa.vkwm.ru/profile",
+    "miniapp-sharing": "https://u.vkt-zakhtarenko.swa.vkwm.ru/miniapp",
+    "vcs-room": "https://call.vkt-zakhtarenko.swa.vkwm.ru/",
+    "tasks": "https://webim.vkt-zakhtarenko.swa.vkwm.ru/webapps/tasklist/index.html",
+    "web-view": "https://webim.vkt-zakhtarenko.swa.vkwm.ru/view.html",
+    "calendar": "https://calendarx.zakhtarenko.swa.vkwm.ru",
+    "mobile_calendar_main_url": "https://calendartouch.zakhtarenko.swa.vkwm.ru",
+    "mobile_calendar_create_event_url": "https://calendartouch.zakhtarenko.swa.vkwm.ru/create",
+    "mail": "https://e.zakhtarenko.swa.vkwm.ru/api/v1/user/webauth/vkteams",
+    "cloud": "https://cloud.zakhtarenko.swa.vkwm.ru"
+  },
+  "services": {
+    "config": {
+      "tasks": {
+        "external": false,
+        "needs_auth": true,
+        "is-public": false,
+        "url": "https://webim.vkt-zakhtarenko.swa.vkwm.ru/webapps/tasklist/index.html"
+      },
+      "calendar": {
+        "external": false,
+        "needs_auth": true,
+        "is-public": true,
+        "template-domains": [
+          "calendarx.zakhtarenko.swa.vkwm.ru"
+        ],
+        "url": "https://calendarmsg.zakhtarenko.swa.vkwm.ru?wv=1&need_silent=1",
+        "mobile-url": "https://calendartouch.zakhtarenko.swa.vkwm.ru?wv=1&need_silent=1",
+        "mobile-create-event-url": "https://calendartouch.zakhtarenko.swa.vkwm.ru/create?wv=1&need_silent=1",
+        "touch-web-enabled": true,
+        "touch-web-url": "https://calendartouch.zakhtarenko.swa.vkwm.ru?wv=1&need_silent=1",
+        "service-worker-enabled": true
+      },
+      "cloud": {
+        "external": false,
+        "needs_auth": true,
+        "is-public": true,
+        "template-domains": [
+          "cloud.zakhtarenko.swa.vkwm.ru"
+        ],
+        "url": "https://cloud.zakhtarenko.swa.vkwm.ru/?wv=1&need_silent=1"
+      },
+      "mail": {
+        "external": false,
+        "mail-android-app-urlscheme": "mail-onpremise-auth://",
+        "mail-ios-app-urlscheme": "mailrumail-x-callback://",
+        "mail-mobile-url": "https://e.zakhtarenko.swa.vkwm.ru/inbox?wv=1&need_silent=1",
+        "needs_auth": true,
+        "service-worker-enabled": false,
+        "is-public": true,
+        "url": "https://e.zakhtarenko.swa.vkwm.ru/inbox?wv=1&need_silent=1",
+        "compose_url": "https://e.zakhtarenko.swa.vkwm.ru/compose?wv=1&need_silent=1"
+      },
+      "orgstructure": {
+        "external": false,
+        "needs_auth": true,
+        "is-public": false,
+        "new": true,
+        "url": "https://webim.vkt-zakhtarenko.swa.vkwm.ru/webapps/orgstructure/index.html",
+        "url-dark": "https://webim.vkt-zakhtarenko.swa.vkwm.ru/webapps/orgstructure/index.html"
+      }
+    },
+    "disposition": {
+      "desktop": {
+        "leftbar": [
+          "messenger",
+          "tasks",
+          "calls",
+          "mail",
+          "calendar",
+          "cloud",
+          "orgstructure"
+        ]
+      },
+      "mobile": {
+        "services": [
+          "discover",
+          "cloud",
+          "orgstructure"
+        ],
+        "tabs": [
+          "messenger",
+          "calls",
+          "tasks",
+          "mail",
+          "calendar"
+        ]
+      }
+    }
+  },
+  "temporary-chat-mute": {
+    "enabled": true,
+    "config": {
+      "max-duration": 2592000
+    }
+  },
+  "mute-counter-split": false,
+  "is-qr-code-enabled": true,
+  "allow-self-avatar-change": false,
+  "allow-self-name-change": false,
+  "allow-self-info-change": false,
+  "snippets-enabled": false,
+  "allow-vcs-call-creation": true,
+  "allow-vcs-webinar-creation": false,
+  "smart-reply-stickers-enabled": false,
+  "smart-reply-text-enabled": false,
+  "server-suggests-enabled": false,
+  "device-protection-required": false,
+  "discover-tab-enabled": false,
+  "attach-phone-enabled": false,
+  "silent-message-delete": false,
+  "threads-enabled": true,
+  "bots-in-threads": true,
+  "draft-enabled": true,
+  "use-in-house-clients": true,
+  "task-creation-in-chat-enabled": true,
+  "antivirus-check-enabled": false,
+  "call-link-v2-enabled": true,
+  "zstd-requests-enabled": false,
+  "zstd-responses-enabled": false,
+  "call-recording-enabled": true,
+  "call-background-blur-enabled": true,
+  "enable-user-state-subscribe": true,
+  "folders-enabled": true,
+  "screenshots-allowed": true,
+  "custom-incoming-sounds-enabled": true,
+  "vpn-detect": false,
+  "pin-required": false,
+  "archive-enabled": true,
+  "pin-chats-enabled": true,
+  "personal-messaging-pins-enabled": true,
+  "message-send-api-enabled": false,
+  "scheduled-messages": {
+    "enabled": true,
+    "config": {
+      "options": [
+        "schedule-by-time"
+      ]
+    }
+  },
+  "updates": {
+    "customLandingUrl": "",
+    "android": {
+      "min_supported_version": {
+        "version": "24.2.0",
+        "build": "0",
+        "full_version": "24.2.0.0"
+      },
+      "force_update_enabled": false
+    },
+    "ios": {
+      "min_supported_version": {
+        "version": "24.2.0",
+        "build": "0",
+        "full_version": "24.2.0.0"
+      },
+      "force_update_enabled": false
+    },
+    "linux_x64": {
+      "min_supported_version": {
+        "version": "24.2.0",
+        "build": "0",
+        "full_version": "24.2.0.0"
+      },
+      "force_update_enabled": false
+    },
+    "mac_x64": {
+      "min_supported_version": {
+        "version": "24.2.0",
+        "build": "0",
+        "full_version": "24.2.0.0"
+      },
+      "force_update_enabled": false
+    },
+    "win_x32": {
+      "min_supported_version": {
+        "version": "24.2.0",
+        "build": "0",
+        "full_version": "24.2.0.0"
+      },
+      "force_update_enabled": false
+    },
+    "win_x64": {
+      "min_supported_version": {
+        "version": "24.9.0",
+        "build": "0",
+        "full_version": "24.9.0.0"
+      },
+      "force_update_enabled": false
+    }
+  },
+  "integrations": {
+    "dlp": {
+      "enabled": false,
+      "config": {
+        "ui-statuses-v1-enabled": false
+      }
+    }
+  },
+  "message-link-sharing": {
+    "message-link-parsing-urls": [
+      "https://webim.vkt-zakhtarenko.swa.vkwm.ru/message"
+    ],
+    "message-link-creation-url": "https://webim.vkt-zakhtarenko.swa.vkwm.ru/message",
+    "message-link-creation-enabled": true,
+    "message-link-parsing-enabled": true,
+    "config": {
+      "version": 1
+    }
+  },
+  "save-to-cloud-enabled": true,
+  "apps": {
+    "linux_x64": {
+      "version": "25.4.0",
+      "build": "70827",
+      "full_version": "25.4.0.70827",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/linux/x64/25.4.0.70827"
+    },
+    "mac_x64": {
+      "version": "25.4.0",
+      "build": "70823",
+      "full_version": "25.4.0.70823",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/mac/x64/25.4.0.70823"
+    },
+    "win_x32": {
+      "version": "24.11.2",
+      "build": "52362",
+      "full_version": "24.11.2.52362",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/win/x32/24.11.2.52362"
+    },
+    "msi_x32": {
+      "version": "24.11.2",
+      "build": "52362",
+      "full_version": "24.11.2.52362",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/msi/x32/24.11.2.52362"
+    },
+    "win_x64": {
+      "version": "25.4.0",
+      "build": "70828",
+      "full_version": "25.4.0.70828",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/win/x64/25.4.0.70828"
+    },
+    "msi_x64": {
+      "version": "25.4.0",
+      "build": "70828",
+      "full_version": "25.4.0.70828",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/msi/x64/25.4.0.70828"
+    },
+    "android": {
+      "version": "25.4.0",
+      "build": "250423055",
+      "full_version": "25.4.0.250423055",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/android/25.4.0.250423055/vkteams.apk"
+    },
+    "vsto": {
+      "version": "1.0.22",
+      "build": "45085",
+      "full_version": "1.0.22.45085",
+      "url": "https://dl.vkt-zakhtarenko.swa.vkwm.ru/downloads/vsto/1.0.22.45085/plugin.msi"
+    }
+  }
+}

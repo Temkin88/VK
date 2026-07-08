@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  
+  qa-metrics:
+    container_name: qa-metrics
+    image: qa-metrics:latest
+    build: .
+    volumes:
+      - ./jira_privatekey.pem:/code/jira_privatekey.pem
+      - ./jira:/code/jira
+    ports:
+      - "80:80"
+
+  grafana:
+    image: grafana/grafana
+    restart: unless-stopped
+    user: "472"
+    container_name: grafana
+    ports:
+      - '8081:3000'
+    depends_on:
+      - prometheus
+    env_file:
+      - ./grafana/config.monitoring
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"

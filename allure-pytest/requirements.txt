@@ -1,0 +1,12 @@
+execnet==2.1.2
+iniconfig==2.3.0
+packaging==25.0
+pluggy==1.6.0
+pyflakes==3.4.0
+Pygments==2.19.2
+pytest==9.0.1
+pytest-check==2.6.0
+pytest-flakes==4.0.5
+pytest-lazy-fixture==0.6.3
+pytest-rerunfailures==16.1
+pytest-xdist==3.8.0

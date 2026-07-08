@@ -1,0 +1,85 @@
+2026-04-17 13:27:33 [INFO] === Введите необходимые параметры ===
+2026-04-17 13:28:20 [INFO] 
+
+2026-04-17 13:28:20 [INFO] Teams host: vkt-zakhtarenko.swa.vkwm.ru, user: centos
+2026-04-17 13:28:26 [INFO] Teams: get file /usr/local/nginx-im/html/myteam/myteam-config.json
+2026-04-17 13:28:30 [INFO] Teams: get file: /tmp/swapper-config.yaml
+2026-04-17 13:34:14 [INFO] === Введите необходимые параметры ===
+2026-04-17 13:34:55 [INFO] 
+
+2026-04-17 13:34:55 [INFO] Teams host: vkt-zakhtarenko.swa.vkwm.ru, user: centos
+2026-04-17 13:35:01 [INFO] Teams: get file /usr/local/nginx-im/html/myteam/myteam-config.json
+2026-04-17 13:35:05 [INFO] Teams: get file: /tmp/swapper-config.yaml
+2026-04-17 13:35:26 [INFO] === Введите необходимые параметры ===
+2026-04-17 13:35:56 [INFO] 
+
+2026-04-17 13:35:56 [INFO] Teams host: vkt-zakhtarenko.swa.vkwm.ru, user: centos
+2026-04-17 13:36:06 [INFO] Teams: get file /usr/local/nginx-im/html/myteam/myteam-config.json
+2026-04-17 13:36:09 [INFO] Teams: get file: /tmp/swapper-config.yaml
+2026-04-17 13:40:26 [INFO] === Введите необходимые параметры ===
+2026-04-17 13:41:33 [INFO] 
+
+2026-04-17 13:41:33 [INFO] Teams host: vkt-zakhtarenko.swa.vkwm.ru, user: centos
+2026-04-17 13:41:36 [INFO] Teams: get file /usr/local/nginx-im/html/myteam/myteam-config.json
+2026-04-17 13:41:39 [INFO] Teams: get file: /tmp/swapper-config.yaml
+2026-04-17 13:51:21 [INFO] === Введите необходимые параметры ===
+2026-04-17 13:51:56 [INFO] 
+
+2026-04-17 13:51:56 [INFO] Teams host: vkt-zakhtarenko.swa.vkwm.ru, user: centos
+2026-04-17 13:52:04 [INFO] Teams: get file /usr/local/nginx-im/html/myteam/myteam-config.json
+2026-04-17 13:52:10 [INFO] Teams: get file: /tmp/swapper-config.yaml
+2026-04-17 13:54:00 [INFO] Teams: get file /usr/local/etc/stroma-1.yaml
+2026-04-17 13:54:04 [INFO] Teams: miniapp token for messenger: 5a1083a11c492a72c13837de59015409a32c3e77f5726207b8bc6e03385a6c9b
+2026-04-17 13:54:05 [INFO] Teams: edited file /tmp/swapper-config.yaml
+2026-04-17 13:54:12 [INFO] Teams: apply swapper config stdout:
+configmap/swapper-config configured
+2026-04-17 13:54:12 [WARNING] Teams: apply swapper config stderr:
+Warning: Permanently added 'vkt-zakhtarenko.swa.vkwm.ru' (RSA) to the list of known hosts.
+2026-04-17 13:54:12 [INFO] Teams: upload file: /tmp/swapper-config.yaml
+2026-04-17 13:54:12 [INFO] Выбран user_managment=stentor
+2026-04-17 13:54:15 [INFO] Teams: get file stentor: /usr/local/etc/k8s/helmwave/projects/stentor/values/stentor.yml
+2026-04-17 13:54:15 [INFO] Teams: edited file /usr/local/nginx-im/html/myteam/myteam-config.json
+2026-04-17 13:54:23 [INFO] Teams: edited file /usr/local/etc/stroma-1.yaml
+2026-04-17 13:54:28 [INFO] Teams: upload file /usr/local/nginx-im/html/myteam/myteam-config.json
+2026-04-17 13:54:33 [INFO] Teams: upload file /usr/local/etc/stroma-1.yaml
+2026-04-17 13:54:34 [INFO] Teams: redeploy myteam-admin, may take 1-2 min...
+2026-04-17 13:55:49 [INFO] Teams: myteam-admin helmwave up return code: 0
+2026-04-17 13:55:49 [INFO] Teams: deleting myteam-admin pod...
+2026-04-17 13:55:51 [INFO] Teams: myteam-admin pod is deleted
+2026-04-17 13:55:51 [INFO] Teams: starting myteam-admin pod...
+2026-04-17 13:55:52 [INFO] .
+2026-04-17 13:56:05 [INFO] .
+2026-04-17 13:56:16 [INFO] .
+2026-04-17 13:56:28 [INFO] .
+2026-04-17 13:56:40 [INFO] .
+2026-04-17 13:56:51 [INFO] 
+Teams: myteam-admin pod is up
+2026-04-17 13:58:16 [INFO] Teams: restarting stroma-1...
+2026-04-17 13:58:18 [INFO] Teams: stroma-1 restarted
+2026-04-17 13:58:19 [INFO] Teams: deleting swapper pod...
+2026-04-17 13:58:21 [INFO] Teams: swapper pod was deleted
+2026-04-17 13:58:21 [INFO] Teams: starting swapper pod...
+2026-04-17 13:58:22 [INFO] .
+2026-04-17 13:58:34 [INFO] 
+Teams: swapper pod is up
+2026-04-17 13:59:12 [INFO] Teams: check install deployer
+2026-04-17 13:59:14 [INFO] Teams: check install deployer: .
+2026-04-17 13:59:26 [INFO] Teams: check install deployer: .
+2026-04-17 13:59:38 [INFO] Teams: check install deployer: .
+2026-04-17 13:59:50 [INFO] Teams: check install deployer: .
+2026-04-17 14:00:01 [INFO] Teams: check install deployer: .
+2026-04-17 14:00:12 [INFO] Teams: check install deployer: .
+2026-04-17 14:00:24 [INFO] Teams: check install deployer: done
+2026-04-17 14:00:25 [INFO] Teams: Setting up SSO...
+2026-04-17 14:00:28 [INFO] Teams: enter idp zakhtarenko.swa.vkwm.ru
+successfully create IdentityProvider with id: 77675a94-9426-4620-8f59-19ee9327349c
+
+successfully connect domain zakhtarenko.swa.vkwm.ru with provider 77675a94-9426-4620-8f59-19ee9327349c
+
+successfully enable sso on domain: zakhtarenko.swa.vkwm.ru
+
+webhook already exists
+successfully setup SSO with 77675a94-9426-4620-8f59-19ee9327349c provider
+
+your callback_uri: u.vkt-zakhtarenko.swa.vkwm.ru/api/v1/idm/auth/callback
+

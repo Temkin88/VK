@@ -1,0 +1,8 @@
+-r ./core.txt
+docutils
+mock
+packaging
+poethepoet
+PyHamcrest
+Pygments
+pytest

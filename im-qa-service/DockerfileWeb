@@ -1,0 +1,27 @@
+FROM python:3.11.0-buster
+
+WORKDIR /web
+
+ENV VIRTUAL_ENV=/web/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+ENV PYTHONWARNINGS="ignore"
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV ALLURE_LAUNCH_NAME='IM.QA Service $(date)'
+
+COPY ./requirements_web.txt /web/requirements.txt
+RUN python3 -m pip install -r requirements.txt --no-cache-dir --require-virtualenv
+
+RUN wget https://github.com/allure-framework/allurectl/releases/latest/download/allurectl_linux_386 -O /usr/local/bin/allurectl
+RUN chmod +x /usr/local/bin/allurectl
+
+COPY ./web /web/web
+COPY ./accounts.json /web/accounts.json
+
+COPY ./tests /web/tests
+COPY ./conftest.py /web/conftest.py
+COPY ./pytest.ini /web/pytest.ini
+COPY ./.coveragerc /web/.coveragerc
+COPY ./populate_db.py /web/populate_db.py

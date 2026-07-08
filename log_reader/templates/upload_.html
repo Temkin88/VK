@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Reader</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link rel="icon" href="/static/favicon.png" type="image/png">
+</head>
+<body>
+    <div id="formContainer">
+        <h1>Upload Log File</h1>
+        <div id="dropZone"> Перетащите лог файл сюда или кликните Upload для выбора
+        </div>
+        <form id="uploadForm" action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileInput" required style="display:none;">
+            <input type="submit" value="Upload">
+            <label for="log_type">Тип лога:</label>
+            <select id="log_type" name="log_type" required>
+                <option value="" disabled selected> </option>
+                <option value="desktop">Desktop</option>
+                <option value="ios">iOS</option>
+                <option value="android">Android</option>
+            </select>
+        </form>
+    </div>
+    <button id="theme-toggle" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">🌒</button>
+    <div id="loading">
+        <div class="spinner"></div>
+        Loading...
+    </div>
+    <div id="fileName"></div>
+    <div id="filters">
+        <div>
+            <label for="lineStart">Line Number Start:</label>
+            <input type="number" id="lineStart" min="1">
+            <label for="lineEnd">End:</label>
+            <input type="number" id="lineEnd" min="1">
+        </div>
+        <div style="margin-left: 20px;">
+            <label for="timeStart">Time Start:</label>
+            <input type="time" id="timeStart" step="1">
+            <label for="timeEnd">End:</label>
+            <input type="time" id="timeEnd" step="1">
+        </div>
+        <button id="applyFilters" style="margin-left: 20px;">Apply Filters</button>
+    </div>
+    <table id="logTable" class="display">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Time</th>
+                <th>Level</th>
+                <th>Source</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <div id="help" >По вопросам и предложениям обращаться к ro.sergeev@vkteam.ru</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/colresizable/colResizable-1.6.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+[tool.locust]
+locustfile = "scenario/load_shape.py"
+class-picker = true
+processes = 4
+host = "https://vkt-4vm-872.beicq.net"

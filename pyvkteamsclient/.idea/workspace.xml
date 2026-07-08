@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="100ff6c2-44ce-4565-9928-f1342244bbea" name="Changes" comment="[IMQA-9443] Изменение sso" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="test/sso" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2y5TzJFqgrtNxeulwYuxgE7vh5p" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/a.zakhtarenko/PyCharmMiscProject/VK/pyvkteamsclient",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-024ed6589d45-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.23567.174" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="100ff6c2-44ce-4565-9928-f1342244bbea" name="Changes" comment="" />
+      <created>1749123696028</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749123696028</updated>
+      <workItem from="1749123697059" duration="608000" />
+      <workItem from="1749130996802" duration="1236000" />
+      <workItem from="1749481930361" duration="7956000" />
+      <workItem from="1750338943835" duration="14000" />
+      <workItem from="1750689279167" duration="1338000" />
+      <workItem from="1751380289638" duration="2047000" />
+    </task>
+    <task id="LOCAL-00001" summary="IMQA fix orstructure">
+      <option name="closed" value="true" />
+      <created>1749482545568</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1749482545568</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[IMQA-8217] fix orstructure">
+      <option name="closed" value="true" />
+      <created>1749554057286</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1749554057286</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[IMQA-8035] Изменение AdminClient">
+      <option name="closed" value="true" />
+      <created>1749564867117</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1749564867117</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[IMQA-8035] Изменение AdminClient">
+      <option name="closed" value="true" />
+      <created>1749565027616</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749565027616</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[IMQA-8035] Изменение AdminClient">
+      <option name="closed" value="true" />
+      <created>1749565141124</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749565141124</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[IMQA-8035] Изменение AdminClient">
+      <option name="closed" value="true" />
+      <created>1749567000093</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749567000093</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[IMQA-8035] Изменение AdminClient">
+      <option name="closed" value="true" />
+      <created>1749568052220</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749568052220</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[IMQA-8528] Добавление в create_chat, check_empty_create_chat">
+      <option name="closed" value="true" />
+      <created>1753883983460</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1753883983460</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[IMQA-8528] Добавление в create_chat, check_empty_create_chat">
+      <option name="closed" value="true" />
+      <created>1753884356439</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1753884356439</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[IMQA-6913] Изменение в client и добавление org_token">
+      <option name="closed" value="true" />
+      <created>1757338874691</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1757338874691</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[IMQA-6913] Изменение в client и добавление org_token">
+      <option name="closed" value="true" />
+      <created>1757343560665</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1757343560665</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[IMQA] Изменение sso">
+      <option name="closed" value="true" />
+      <created>1761988896025</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1761988896025</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="IMQA fix orstructure" />
+    <MESSAGE value="[IMQA-8217] fix orstructure" />
+    <MESSAGE value="[IMQA-8035] Изменение AdminClient" />
+    <MESSAGE value="[IMQA-8528] Добавление в create_chat, check_empty_create_chat" />
+    <MESSAGE value="[IMQA-6913] Изменение в client и добавление org_token" />
+    <MESSAGE value="[IMQA] Изменение sso" />
+    <option name="LAST_COMMIT_MESSAGE" value="[IMQA] Изменение sso" />
+  </component>
+</project>

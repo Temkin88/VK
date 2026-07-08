@@ -1,0 +1,67 @@
+volumes:
+  redis:
+  postgres:
+
+services:
+  postgres:
+    image: mirror.gcr.io/postgres:17.4
+    restart: always
+    environment:
+      PGDATA: /var/lib/postgresql/data/db-files
+    env_file:
+      - variables.env
+    volumes:
+      - postgres:/var/lib/postgresql/data/db-files
+    healthcheck:
+      test: [ "CMD", "pg_isready", "--user=postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: "journald"
+
+  redis:
+    image: mirror.gcr.io/redis:6.2-alpine
+    restart: always
+    command: redis-server --save 20 1 --loglevel warning
+    env_file:
+      - 'variables.env'
+    volumes:
+      - redis:/data
+    healthcheck:
+      test: pgrep -f redis-server || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: "journald"
+
+  db_setup:
+    image: redash/redash:25.1.0
+    command: create_db
+    depends_on:
+      - postgres
+      - redis
+    env_file:
+      - variables.env
+
+  redash-server:
+    image: redash/redash:25.1.0
+    restart: always
+    env_file:
+      - variables.env
+    command: server
+    depends_on:
+      - db_setup
+    ports:
+      - "0.0.0.0:5000:5000"
+      - "0.0.0.0:5678:5678"
+
+  redash-worker:
+    image: redash/redash:25.1.0
+    restart: always
+    command: worker
+    env_file:
+      - variables.env
+    depends_on:
+      - redash-server

@@ -1,0 +1,53 @@
+version: "3.9"
+
+networks:
+  im_qa_helper_network:
+    driver: bridge
+    ipam:
+      driver: default
+      #config:
+      #- subnet: 10.0.3.0/24
+      #  gateway: 10.0.3.1
+
+services:
+  locust-master:
+    #image: registry-gitlab.corp.mail.ru/imqa/locustloadtests:master-latest
+    build:
+      context: .
+      dockerfile: docker/master/Dockerfile
+    command: locust -f locust_tasks.py --config=locust.conf --loglevel DEBUG --host=https://u.vkt-4vm-872.beicq.net --users=100 --spawn-rate=5 --run-time=30m
+    networks:
+      - im_qa_helper_network
+    ports:
+      - "8090:8089"
+    healthcheck:
+      test: python -c "import socket; socket.create_connection(('localhost', 8089), timeout=5)"
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+  locust-worker:
+    #image: registry-gitlab.corp.mail.ru/imqa/locustloadtests:worker-latest
+    build:
+      context: .
+      dockerfile: docker/worker/Dockerfile
+    command: locust -f locust_tasks.py --config=locust.conf --loglevel DEBUG
+    networks:
+      - im_qa_helper_network
+    depends_on:
+      - locust-master
+    healthcheck:
+      test: ps aux | grep locust || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      mode: replicated
+      replicas: 5
+      resources:
+        reservations:
+#          cpus: '1'
+          memory: 384M
+        limits:
+#          cpus: '2'
+          memory: 1G

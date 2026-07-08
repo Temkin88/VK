@@ -1,0 +1,22 @@
+aenum==3.1.15
+apsw==3.46.0.0
+cached-property==1.5.2
+certifi==2024.7.4
+charset-normalizer==2.0.12
+click==8.0.3
+expiringdict==1.2.1
+gTTS==2.2.3
+idna==3.7
+loguru==0.7.2
+mailru-im-bot==0.0.21
+monotonic==1.6
+openapi-client @ git+https://git:nLALFsbFTb8z37xMzvMR@gitlab.corp.mail.ru/imqa/allureclient.git
+peewee==3.17.5
+pydantic==1.10.15
+python-baseconv==1.2.2
+python-dateutil==2.9.0.post0
+requests==2.26.0
+ruff==0.4.8
+six==1.16.0
+typing_extensions==4.12.1
+urllib3==1.26.7

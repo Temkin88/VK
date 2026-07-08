@@ -1,0 +1,165 @@
+name: stroma-1
+host: onpremise
+log:
+  level: info
+  async: true
+ctlr:
+  server: ctlr.service.onpremise.consul:2410
+  map: stroma
+  verbose: false
+  dial_timeout: 3s
+http:
+  listen: 0.0.0.0:8036
+  shutdown_timeout: 3s
+grpc:
+  listen: 0.0.0.0:50051
+  ratelimits:
+    enabled: true
+ipros:
+  listen: 0.0.0.0:2500
+  verbose: false
+  graceful_timeout: 5s
+  map_timeout: 5s
+  concurrency: 1024
+  esiaflow: esiaflow
+  swaflow: swaflow
+  tokeeper: tokeeper
+  sn_st: robusto-sn-st
+  prof_st: prof-st
+  fagus: fagus
+  esiaflow_timeout: 3s
+  swaflow_timeout: 3s
+  tokeeper_timeout: 3s
+  sn_st_timeout: 3s
+  prof_st_timeout: 3s
+  fagus_timeout: 3s
+  esiaflow_retry_count: 3
+  swaflow_retry_count: 3
+providers:
+  esia: ESIA
+  esia_title: esia title
+  esia_description: esia description
+  esia_is_menu: false
+  esia_icon: ''
+  swa: SWA
+  swa_title: swa title
+  swa_description: swa description
+  swa_is_menu: false
+  otp: OTP
+  otp_title: otp title
+  otp_description: otp description
+  otp_is_menu: false
+  sso: SSO
+  sso_title: sso title
+  sso_description: sso description
+  sso_is_menu: false
+webui:
+  page_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/idm-web/
+features:
+  jwt_required: false
+  auth_request_switch_domains: false
+  check_if_user_blocked_on_token_refresh: true
+  redirect_to_phone_number_validation_if_needed: true
+  allow_validate_refresh_only_by_signature: false
+  use_tokeeper_for_blocked_accounts: false
+  swa_default_provider: false
+ratelimits:
+  enabled: false
+openid_configuration:
+  auth_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/api/v1/idm/auth/authorize
+  callback_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/api/v1/idm/auth/callback
+  userinfo_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/api/v1/idm/auth/userinfo
+  token_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/api/v1/idm/auth/token
+  introspection_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/api/v1/idm/auth/validate
+pushauth:
+  url: https://auth.zakhtarenko.swa.vkwm.ru/api/v1/pushauth/info
+  timeout: 5s
+probes:
+  enabled: true
+  address: :5555
+metrics:
+  alive_check_interval: 10s
+auth_request:
+  domains:
+    sso.bizml.ru: {}
+auth:
+  miniapp_refresh_token_expires_in: 720h
+  token_secret: 12345
+  oidc_cache_item_lifetime: 600s
+  one_time_token_expires_in: 10m
+  access_token_expires_in: 5m
+  refresh_token_expires_in: 720h
+  id_token_expires_in: 30m
+  callback_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/api/v1/idm/auth/callback
+  token_type_bearer: Bearer
+  app_client_id_length: 16
+  app_client_secret_length: 64
+  token_request:
+    timeout: 4s
+    retry_count: 2
+  provider_adfs: ADFS
+  token_type_silent: silent
+  silent_token_salt: 12345
+  miniapp_api_token_salt: 12345
+  access_by_silent_min: 60s
+  access_by_silent_max: 24h
+  allowed_miniapp_ids_for_swa_to_continue_silent_flow:
+  - calls
+  - mail
+  - calendar
+  - cloud
+  - vkt_ws_mail
+  - vkt_ws_calendar
+  - vkt_ws_cloud
+  client_internal_id_swa: swa
+  one_time_code_secret: '{ONE_TIME_SECRET}'
+  one_time_code_length: 256
+  refresh_token_workers_count: 4000
+  idp_retries: 3
+  idp_allowed_failure_duration: 72h
+  allow_all_redirect_uri: true
+  allowed_redirect_uri:
+  - https://teams.vk.com/webim/
+  - https://127.0.0.1/webim/
+  - redirectURL
+  - /redirectURL
+  - vkteams://providerauthbrowser
+  - https://auth.mail.ru/api/v1/oauth2/sso/callback
+  - https://127.0.0.1/webim/branches/develop/
+  - https://127.0.0.1/webim/branches/develop/?redirectAction=StromaAuthRedirect
+  - https://127.0.0.1/webim/?redirectAction=StromaAuthRedirect
+  - https://127.0.0.1/webim/branches/task/IMWEB-9101/?redirectAction=StromaAuthRedirect
+argon:
+  memory: 65536
+  iterations: 3
+  parallelism: 2
+  salt_length: 16
+  key_length: 32
+user_management: stentor
+stentor:
+  host: http://stentor.myteaminternal
+  timeout: 3s
+biz:
+  host: https://biz.zakhtarenko.swa.vkwm.ru
+  retries: 3
+  timeout: 3s
+  saas_mode: false
+  generated_password_len: 12
+profile:
+  wait_page_after_creation: true
+  wait_page_url: https://u.vkt-zakhtarenko.swa.vkwm.ru/idm-web/wait
+webhooks:
+  retry_count: 2
+  retry_delay: 1s
+  request_timeout: 5s
+geoip:
+  use_maxmind: true
+  maxmind_db_file: /usr/share/GeoIP/GeoLite2-City.mmdb
+devids:
+  yaml_file: /usr/local/stroma/etc/dev_ids.yaml
+swamail:
+  url: https://swa.zakhtarenko.swa.vkwm.ru/api/v1
+  client_id: vk-teams
+  client_secret: eiMhiJOJTWXRClnPmWv7cVu5cleFBvQB
+  timeout: 5s
+  retries: 3

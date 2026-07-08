@@ -1,0 +1,95 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    env_file:
+      - 'variables.env'
+
+  minio:
+    image: 'bitnami/minio:latest'
+    environment:
+      - MINIO_ROOT_USER=minio-root-user
+      - MINIO_ROOT_PASSWORD=minio-root-password
+
+  web:
+    image: registry-gitlab.corp.mail.ru/imqa/im-qa-helper:web
+    build:
+      context: .
+      dockerfile: DockerfileWeb
+    command: python3 -m uvicorn web.main:app --host 0.0.0.0 --log-level critical
+    env_file:
+      - 'variables.env'
+    volumes:
+      - ./Attention:/web/Attention
+      - ./Origins:/web/Origins
+      - ./Difference:/web/Difference
+    depends_on:
+      - db
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "-s", "http://web:8000/healthcheck" ]
+      interval: 2m
+      timeout: 5s
+      retries: 3
+    ports:
+      - "8000:8000"
+
+  worker:
+    image: registry-gitlab.corp.mail.ru/imqa/im-qa-helper:web
+    build:
+      context: .
+      dockerfile: DockerfileWeb
+    command: python3 -m celery --app=web.project.celery.celery_app worker --loglevel=info
+    volumes:
+      - ./Attention:/web/Attention
+      - ./Origins:/web/Origins
+      - ./Difference:/web/Difference
+    env_file:
+      - 'variables.env'
+    depends_on:
+      - web
+      - db
+
+  imagerbot:
+    image: registry-gitlab.corp.mail.ru/imqa/im-qa-helper:bot
+    build:
+      context: .
+      dockerfile: DockerfileBot
+    command: python3 imagebot/bot.py
+    volumes:
+      - ./Attention:/web/Attention
+      - ./Origins:/web/Origins
+      - ./Difference:/web/Difference
+    env_file:
+      - 'variables.env'
+    depends_on:
+      - web
+      - db
+
+  otpbot:
+    image: registry-gitlab.corp.mail.ru/imqa/im-qa-helper:otpbot
+    build:
+      context: .
+      dockerfile: DockerfileOTP
+    command: python3 otpbot/bot.py
+    env_file:
+      - 'variables.env'
+    depends_on:
+      - web
+      - db
+
+  proxy:
+    image: registry-gitlab.corp.mail.ru/imqa/im-qa-helper:proxy
+    build:
+      context: .
+      dockerfile: DockerfileProxy
+    ports:
+      - "80:8080"
+      - "443:8443"
+    volumes:
+      - ./nginx_certs/domain:/usr/local/openresty/nginx/nginx_certs/domain
+      - ./nginx_certs/ip:/usr/local/openresty/nginx/nginx_certs/ip
+    depends_on:
+      - web

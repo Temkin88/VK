@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="91aaac16-b73f-4633-ba49-0bbf84988415" name="Changes" comment="[IMQA-7257] Updated config from https://confluence.vk.team/pages/viewpage.action?pageId=1202564958">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;v.korobov&quot;,
+      &quot;fullname&quot;: &quot;Валерий Коробов&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;git@gitlab.corp.mail.ru:imqa/allureautoassign.git&quot;,
+    &quot;second&quot;: &quot;90851bdd-eda1-4698-aa2c-7ebbecb59279&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2kgs6V4ZCuUJ6uynL7lgJi8ts8h" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.AllureAutoAssignBot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;IMQA-7257&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/v.korobov/PycharmProjects/AllureAutoAssignBot/auto_assign&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/auto_assign" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="AllureAutoAssignBot" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="AllureAutoAssignBot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="PYTHONWARNINGS" value="ignore" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/AllureAutoAssignBot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-ce3d9afa04ac-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.20224.347" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91aaac16-b73f-4633-ba49-0bbf84988415" name="Changes" comment="" />
+      <created>1723716379016</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1723716379016</updated>
+    </task>
+    <task id="LOCAL-00001" summary="[IMQA-5038] init">
+      <option name="closed" value="true" />
+      <created>1724072006098</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724072006098</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[IMQA-5038] init">
+      <option name="closed" value="true" />
+      <created>1724072553645</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724072553645</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[IMQA-5038] init">
+      <option name="closed" value="true" />
+      <created>1724072588719</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724072588719</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[IMQA-5038] init">
+      <option name="closed" value="true" />
+      <created>1724073238850</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724073238850</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[IMQA-5038] init">
+      <option name="closed" value="true" />
+      <created>1724075333365</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724075333365</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[IMQA-5386] Fix equable assign of test cases">
+      <option name="closed" value="true" />
+      <created>1727657139700</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727657139700</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[IMQA-5396] Fix reassign of cases">
+      <option name="closed" value="true" />
+      <created>1727658548602</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727658548602</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[IMQA] Refactoring">
+      <option name="closed" value="true" />
+      <created>1727800691417</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727800691417</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[IMQA] Refactoring">
+      <option name="closed" value="true" />
+      <created>1727800942938</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727800942938</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[IMQA] Quick fix">
+      <option name="closed" value="true" />
+      <created>1727898553669</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1727898553669</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[IMQA] Quick fix">
+      <option name="closed" value="true" />
+      <created>1727899203485</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727899203485</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[IMQA-5084] Added an.beliaev@vkteam.ru">
+      <option name="closed" value="true" />
+      <created>1731421959405</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731421959405</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[IMQA-5084] Added log file for assigning process">
+      <option name="closed" value="true" />
+      <created>1731428661900</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731428661900</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[IMQA-5084] Added log file for assigning process">
+      <option name="closed" value="true" />
+      <created>1731429045356</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731429045356</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[IMQA-7257] Updated config from https://confluence.vk.team/pages/viewpage.action?pageId=1202564958">
+      <option name="closed" value="true" />
+      <created>1740745380669</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1740745380669</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[IMQA-5038] init" />
+    <MESSAGE value="[IMQA-5386] Fix equable assign of test cases" />
+    <MESSAGE value="[IMQA-5396] Fix reassign of cases" />
+    <MESSAGE value="[IMQA] Refactoring" />
+    <MESSAGE value="[IMQA] Quick fix" />
+    <MESSAGE value="[IMQA-5084] Added an.beliaev@vkteam.ru" />
+    <MESSAGE value="[IMQA-5084] Added log file for assigning process" />
+    <MESSAGE value="[IMQA-7257] Updated config from https://confluence.vk.team/pages/viewpage.action?pageId=1202564958" />
+    <option name="LAST_COMMIT_MESSAGE" value="[IMQA-7257] Updated config from https://confluence.vk.team/pages/viewpage.action?pageId=1202564958" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/utils/handler_wrapper.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/.venv/lib/python3.12/site-packages/pyvkteamsbot/bot/bot.py</url>
+          <line>343</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

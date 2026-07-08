@@ -1,0 +1,20 @@
+host: "https://u.vkt-ot-4vm-1268.im-sandbox.devmail.ru"
+supply_url: "https://load.im-sandbox.devmail.ru/api"
+cooldown_duration_sec: 60      # 2 минутное ожидание. охлаждение системы
+conference_duration_sec: 900    # 15 минут длительность ВКС звонка
+
+p2p_parameters:
+  start_p2p_calls: 1
+  total_iterations: 5
+  scale_iterations: 1
+  wait_call_timeout_sec: 5
+  call_duration_sec: 60
+  max_parallel_calls: 20
+
+test_parameters:
+  iteration_count: 10            # количество итераций ramp-up
+  conferences_created: 50       # стартовое количество ВКС конференций
+  bots_per_conference: 20       # количество ботов в каждой ВКС конференции
+  conferences_scale: 2          # на сколько увеличивать количество ВКС конференций на следующей итерации
+
+  num_threads: 20               # количество theading потоков для ускорения теста

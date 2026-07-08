@@ -1,0 +1,26 @@
+variables:
+  DOCKER_HOST: unix:///var/run/docker.sock
+  PW_VERSION:
+    value: 1.51.0
+  FROM_VERSION_TAG:
+    value: 20.17-bullseye
+
+stages: [lint, build]
+
+include:
+  - local: templates/lint/template.yml
+  - local: templates/build/template.yml
+    inputs:
+      FROM_VERSION_TAG: 20.17-bullseye
+      PW_VERSION: 1.51.0
+
+
+docker:build:
+  variables:
+    FROM_VERSION_TAG: 20.17-bullseye
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: on_success
+    - when: never
+  needs:
+    - job: docker:lint

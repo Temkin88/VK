@@ -1,0 +1,40 @@
+{
+  "IMSUPPORT": [
+    "t.kosterina@corp.mail.ru"
+  ],
+  "IMDESKTOP": [
+    "o.pachina@corp.mail.ru",
+    "m.sukhikh@vk.team",
+    "t.prudnikova@vk.team",
+    "i.shakhov@vk.team",
+    "a.zheleznichenko@vk.team"
+  ],
+  "IMWEB": [
+    "o.pachina@corp.mail.ru",
+    "m.sukhikh@vk.team",
+    "t.prudnikova@vk.team",
+    "i.shakhov@vk.team",
+    "a.zheleznichenko@vk.team",
+    "n.sviryukova@corp.mail.ru",
+    "l.golovenkova@vk.team"
+  ],
+  "IMVOIP": [
+    "e.bronshtein@vk.team",
+    "e.semirova@vk.team"
+  ],
+  "IMIOS": [
+    "l.golovenkova@vk.team",
+    "o.uluer@corp.mail.ru",
+    "olga.rybakova@vk.team"
+  ],
+  "IMA": [
+    "anatoly.imshenik@vk.team",
+    "alexandra.bogdanova@vk.team",
+    "m.krauklis@corp.mail.ru"
+  ],
+  "IMSERVER": [
+    "n.sviryukova@corp.mail.ru"
+  ],
+  "TODO": [],
+  "IMALL": []
+}

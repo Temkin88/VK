@@ -1,0 +1,271 @@
+ignore: []
+users:
+  i.unru@vkteam.ru:
+    commands:
+      - Android
+    functionalities:
+      - 34. Core Android
+    directions:
+      - VKT. Клиентская разработка
+  a.kitaev@vk.team:
+    commands:
+      - Desktop
+      - iOS
+    functionalities:
+      - 32. Core Desktop
+      - 33. Core iOS
+    directions:
+      - VKT. Клиентская разработка
+  a.zamotina@vkteam.ru:
+    commands:
+      - Web
+    functionalities:
+      - 31. Core Web
+    directions:
+      - VKT. Клиентская разработка
+  alexandr.salnikov@vkteam.ru:
+    commands:
+      - Чат и сообщения
+    functionalities:
+      - 02. Messaging
+    directions:
+      - VKT. Мессенджер
+  an.beliaev@vkteam.ru:
+    commands:
+      - Аутентификация и Авторизация
+    functionalities:
+      - 23. Authentication
+    directions:
+      - VKT. Коммуникационная платформа
+  ro.sergeev@vkteam.ru:
+    commands:
+      - Чат и сообщения
+    functionalities:
+      - 02. Messaging
+    directions:
+      - VKT. Мессенджер
+  m.krauklis@corp.mail.ru:
+    commands:
+      - Чат и сообщения
+    functionalities:
+      - 02. Messaging
+    directions:
+      - VKT. Мессенджер
+  konstantin.gerasimov@vk.team:
+    commands:
+      - Чат и сообщения
+    functionalities:
+      - 02. Messaging
+    directions:
+      - VKT. Мессенджер
+  o.uluer@corp.mail.ru:
+    commands:
+      - Контакты и диалоги
+    functionalities:
+      - 03. Contacts
+    directions:
+      - VKT. Мессенджер
+  a.zheleznichenko@vk.team:
+    commands:
+      - Контакты и диалоги
+    functionalities:
+      - 03. Contacts
+    directions:
+      - VKT. Мессенджер
+  v.kuzakov@vk.team:
+    commands:
+      - Суперапп
+    functionalities:
+      - 04. Base App
+      - 21. Notifications
+      - 22. Settings
+    directions:
+      - VKT. Клиентская разработка
+  e.bronshtein@vk.team:
+    commands:
+      - Звонки
+    functionalities:
+      - 09. Calls
+    directions:
+      - VKT. ВКС
+  e.semirova@vk.team:
+    commands:
+      - Звонки
+    functionalities:
+      - 09. Calls
+    directions:
+      - VKT. ВКС
+  v.sharifullin@vk.team:
+    commands:
+      - Звонки
+    functionalities:
+      - 09. Calls
+    directions:
+      - VKT. ВКС
+  s.balyaev@vk.team:
+    commands:
+      - Чат и сообщения
+    functionalities:
+      - 02. Messaging
+    directions:
+      - VKT. Мессенджер
+  anton.lyakh@vk.team:
+    commands:
+      - Интеграции
+    functionalities:
+      - 56. Security
+    directions:
+      - VKT. Коммуникационная платформа
+  d.petrovskaya@vk.team:
+    commands:
+      - Федерация
+    functionalities:
+      - 10. Federations
+      - 11. Group Policies
+      - 12. Search
+      - 13. Profile
+      - 14. Orgstructure
+    directions:
+      - VKT. Коммуникационная платформа
+  t.patrakeeva@vk.team:
+    commands:
+      - Приложения
+    functionalities:
+      - 16. Mail
+      - 17. Calendar
+      - 18. Cloud
+      - 19. MiniApps
+      - 20. BotAPI
+      - 24. Surveys
+      - 25. Tasks
+    directions:
+      - VKT. Клиентская разработка
+  a.mesyatsyna@vkteam.ru:
+    commands:
+      - Приложения
+    functionalities:
+      - 16. Mail
+      - 17. Calendar
+      - 18. Cloud
+      - 19. MiniApps
+      - 20. BotAPI
+      - 24. Surveys
+      - 25. Tasks
+    directions:
+      - VKT. Клиентская разработка
+  mariia.soloveva@vk.team:
+    commands:
+      - Приложения
+    functionalities:
+      - 16. Mail
+      - 17. Calendar
+      - 18. Cloud
+      - 19. MiniApps
+      - 20. BotAPI
+      - 24. Surveys
+      - 25. Tasks
+    directions:
+      - VKT. Клиентская разработка
+  viatcheslav.durnev@vk.team:
+    commands:
+      - Приложения
+    functionalities:
+      - 16. Mail
+      - 17. Calendar
+      - 18. Cloud
+      - 19. MiniApps
+      - 20. BotAPI
+      - 24. Surveys
+      - 25. Tasks
+    directions:
+      - VKT. Клиентская разработка
+
+  n.sviryukova@corp.mail.ru:
+    commands:
+      - Федерация
+    functionalities:
+      - 10. Federations
+      - 11. Group Policies
+      - 12. Search
+      - 13. Profile
+      - 14. Orgstructure
+    directions:
+      - VKT. Коммуникационная платформа
+product_functionality:
+  02. Messaging:
+    direction: VKT. Мессенджер
+    team: Чат и сообщения
+  03. Contacts:
+    direction: VKT. Мессенджер
+    team: Контакты и диалоги
+  04. Base App:
+    direction: VKT. Клиентская разработка
+    team: Суперапп
+  09. Calls:
+    direction: VKT. ВКС
+    team: Звонки
+  10. Federations:
+    direction: VKT. Коммуникационная платформа
+    team: Федерация
+  11. Group Policies:
+    direction: VKT. Коммуникационная платформа
+    team: Федерация
+  12. Search:
+    direction: VKT. Коммуникационная платформа
+    team: Федерация
+  13. Profile:
+    direction: VKT. Коммуникационная платформа
+    team: Федерация
+  14. Orgstructure:
+    direction: VKT. Коммуникационная платформа
+    team: Федерация
+  16. Mail:
+    direction: VKT. Клиентская разработка
+    team: Приложения
+  17. Calendar:
+    direction: VKT. Клиентская разработка
+    team: Приложения
+  18. Cloud:
+    direction: VKT. Клиентская разработка
+    team: Приложения
+  19. MiniApps:
+    direction: VKT. Клиентская разработка
+    team: Приложения
+  20. BotAPI:
+    direction: VKT. Клиентская разработка
+    team: Приложения
+  21. Notifications:
+    direction: VKT. Клиентская разработка
+    team: Суперапп
+  22. Settings:
+    direction: VKT. Клиентская разработка
+    team: Суперапп
+  23. Authentication:
+    direction: VKT. Коммуникационная платформа
+    team: Аутентификация и Авторизация
+  24. Surveys:
+    direction: VKT. Клиентская разработка
+    team: Приложения
+  25. Tasks:
+    direction: VKT. Клиентская разработка
+    team: Приложения
+  31. Core Web:
+    direction: VKT. Клиентская разработка
+    team: Web
+  32. Core Desktop:
+    direction: VKT. Клиентская разработка
+    team: Desktop
+  33. Core iOS:
+    direction: VKT. Клиентская разработка
+    team: iOS
+  34. Core Android:
+    direction: VKT. Клиентская разработка
+    team: Android
+  56. Security:
+    direction: VKT. Коммуникационная платформа
+    team: Интеграции
+ignored_product_functionality:
+  - 27. Core Design
+  - 29. Core Backend
+  - 32. Core Desktop
+  - 44. Admin Panel (WorkSpace)

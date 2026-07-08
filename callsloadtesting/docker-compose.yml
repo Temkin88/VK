@@ -1,0 +1,56 @@
+version: "3.9"
+
+networks:
+  im_qa_helper_ntw_calls:
+    driver: bridge
+    ipam:
+      driver: default
+      #config:
+      #- subnet: 10.0.3.0/24
+      #  gateway: 10.0.3.1
+
+services:
+  locust-master:
+    build:
+      context: .
+      dockerfile: docker/master/Dockerfile
+    #command: --config=shape.toml --loglevel DEBUG --skip-log-setup
+    #command: --config=load.toml --loglevel DEBUG --skip-log-setup --users=5 --spawn-rate=2 --run-time 1m
+    command: locust -f scenario/p2p_call/p2p_call.py --web-port 9090 -u 1 -r 1
+    networks:
+      - im_qa_helper_ntw_calls
+    volumes:
+      - ./logs:/app/logs
+    ports:
+      - "9090:9090"
+    healthcheck:
+      test: python -c "import socket; socket.create_connection(('localhost', 9090), timeout=5)"
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+  locust-worker:
+    build:
+      context: .
+      dockerfile: docker/worker/Dockerfile
+    #command: --config=shape.toml --loglevel DEBUG
+    command: locust --config=load.toml --loglevel DEBUG
+    networks:
+      - im_qa_helper_ntw_calls
+    depends_on:
+      - locust-master
+    healthcheck:
+      test: ps aux | grep locust || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    deploy:
+      mode: replicated
+      replicas: 5
+      resources:
+        reservations:
+          # cpus: '1'
+          memory: 384M
+        limits:
+          # cpus: '1'
+          memory: 1G

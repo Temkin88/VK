@@ -1,0 +1,867 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 2,
+  "iteration": 1646163880508,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 43,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "project_tasks_status{project=~\"$Project\", status=\"Ready for test\", days=\"$Days\", priority=~\"$Priority\"}",
+          "instant": false,
+          "interval": "1",
+          "legendFormat": "{{ project }} | {{status}} | {{priority}}",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "sum(project_tasks_status{project=~\"$Project\", status=~\"$Status\", days=\"$Days\", priority=~\"$Priority\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Total",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "project_tasks_status{project=~\"$Project\", status=\"Тестирование\", days=\"$Days\", priority=~\"$Priority\"}",
+          "hide": false,
+          "instant": false,
+          "interval": "1",
+          "legendFormat": "{{ project }} | {{status}} | {{priority}}",
+          "refId": "B"
+        }
+      ],
+      "title": "Tasks count | $Project",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 42,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 4,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "stats_hours_avg{project=~\"$Project\", days=\"$Days\", status=~\"$Status\", priority=~\"$Priority\", hours_type=\"$Hours\"}",
+          "interval": "",
+          "legendFormat": "{{ project }} | {{ status }} | {{ priority }}, hrs",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "sum(stats_hours_avg{project=~\"$Project\", days=\"$Days\", priority=~\"$Priority\", hours_type=\"$Hours\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Total",
+          "refId": "C"
+        }
+      ],
+      "title": "$Project | $Hours | $Priority | $Status | Avg period in hours",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 43,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 5,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 21
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "stats_hours_percentile_by_status{project=~\"$Project\", priority=~\"$Priority\", status=~\"$Status\", days=\"$Days\", hours_type=\"$Hours\", percent=\"$Percentile\"}",
+          "interval": "",
+          "legendFormat": "{{ project }} | {{ priority }} | {{ status }}",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "sum(stats_hours_percentile_by_status{project=~\"$Project\", priority=~\"$Priority\", status=~\"$Status\", days=\"$Days\", hours_type=\"$Hours\", percent=\"$Percentile\"})",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Total",
+          "refId": "B"
+        }
+      ],
+      "title": "$Project | $Hours | $Priority | $Status | $Percentile | Percentile hours",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 34,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 4,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "stats_hours_avg_count_by_author{project=~\"$Project\", priority=~\"$Priority\", status=\"Ready for test\", days=\"$Days\", hours_type=\"$Hours\"}",
+          "interval": "",
+          "legendFormat": "{{ project }} | {{ priority }} | {{ author }}",
+          "refId": "A"
+        }
+      ],
+      "title": "$Project | $Priority | Ready for test | Hours avg by assignee",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 34,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 4,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 44
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "stats_hours_avg_count_by_author{project=~\"$Project\", priority=~\"$Priority\", status=\"Testing\", days=\"$Days\", hours_type=\"$Hours\"}",
+          "interval": "",
+          "legendFormat": "{{ project }} | {{ priority }} | {{ author }}",
+          "refId": "A"
+        }
+      ],
+      "title": "$Project | $Priority | Testing | Hours avg by assignee",
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 21,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 4,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 24,
+        "x": 0,
+        "y": 55
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "sortBy": "Last",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "v7Pn7VYnz"
+          },
+          "exemplar": true,
+          "expr": "stats_task_return_count{project=~\"$Project\", priority=~\"$Priority\", days=\"$Days\"}",
+          "interval": "",
+          "legendFormat": "{{ project }} | {{ priority }} | {{ task }}",
+          "refId": "A"
+        }
+      ],
+      "title": "$Project | $Priority | Task return count",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "10s",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": [
+            "IMDESKTOP"
+          ],
+          "value": [
+            "IMDESKTOP"
+          ]
+        },
+        "hide": 0,
+        "includeAll": true,
+        "label": "Project",
+        "multi": true,
+        "name": "Project",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "IMDESKTOP",
+            "value": "IMDESKTOP"
+          },
+          {
+            "selected": false,
+            "text": "IMIOS",
+            "value": "IMIOS"
+          },
+          {
+            "selected": false,
+            "text": "IMA",
+            "value": "IMA"
+          },
+          {
+            "selected": false,
+            "text": "IMWEB",
+            "value": "IMWEB"
+          },
+          {
+            "selected": false,
+            "text": "IMSERVER",
+            "value": "IMSERVER"
+          }
+        ],
+        "query": "IMDESKTOP,IMIOS,IMA,IMWEB,IMSERVER",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "45",
+          "value": "45"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "Days",
+        "options": [
+          {
+            "selected": false,
+            "text": "7",
+            "value": "7"
+          },
+          {
+            "selected": false,
+            "text": "30",
+            "value": "30"
+          },
+          {
+            "selected": false,
+            "text": "90",
+            "value": "90"
+          }
+        ],
+        "query": "7,30,90",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "business",
+          "value": "business"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Hours",
+        "multi": false,
+        "name": "Hours",
+        "options": [
+          {
+            "selected": true,
+            "text": "business",
+            "value": "business"
+          },
+          {
+            "selected": false,
+            "text": "calendar",
+            "value": "calendar"
+          }
+        ],
+        "query": "business,calendar",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": [
+            "Ready for test",
+            "Тестирование",
+            "Testing"
+          ],
+          "value": [
+            "Ready for test",
+            "Тестирование",
+            "Testing"
+          ]
+        },
+        "hide": 0,
+        "includeAll": true,
+        "label": "Status",
+        "multi": true,
+        "name": "Status",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "Ready for test",
+            "value": "Ready for test"
+          },
+          {
+            "selected": true,
+            "text": "Testing",
+            "value": "Testing"
+          },
+          {
+            "selected": true,
+            "text": "Тестирование",
+            "value": "Тестирование"
+          }
+        ],
+        "query": "Ready for test,Testing,Тестирование",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": [
+            "Стандартный"
+          ],
+          "value": [
+            "Стандартный"
+          ]
+        },
+        "hide": 0,
+        "includeAll": true,
+        "label": "Priority",
+        "multi": true,
+        "name": "Priority",
+        "options": [
+          {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          {
+            "selected": true,
+            "text": "Стандартный",
+            "value": "Стандартный"
+          },
+          {
+            "selected": false,
+            "text": "Критический",
+            "value": "Критический"
+          },
+          {
+            "selected": false,
+            "text": "Блокирующий",
+            "value": "Блокирующий"
+          }
+        ],
+        "query": "Стандартный,Критический,Блокирующий",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "p50",
+          "value": "p50"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Percentile",
+        "multi": false,
+        "name": "Percentile",
+        "options": [
+          {
+            "selected": true,
+            "text": "p50",
+            "value": "p50"
+          },
+          {
+            "selected": false,
+            "text": "p80",
+            "value": "p80"
+          },
+          {
+            "selected": false,
+            "text": "p95",
+            "value": "p95"
+          }
+        ],
+        "query": "p50,p80,p95",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "IM QA Metrics",
+  "uid": "GSC_7XB7k",
+  "version": 19,
+  "weekStart": ""
+}

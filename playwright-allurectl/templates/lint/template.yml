@@ -1,0 +1,16 @@
+spec:
+  inputs:
+    stage:
+      default: lint
+---
+
+"docker:$[[ inputs.stage ]]":
+  image: ghcr.io/hadolint/hadolint:latest-debian
+  tags:
+    - shared-docker-supply
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+  stage: $[[ inputs.stage ]]
+  script:
+    - |
+      hadolint --ignore DL3008 Dockerfile

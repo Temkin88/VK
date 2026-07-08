@@ -1,0 +1,4 @@
+FROM openresty/openresty:buster
+
+COPY nginx/mime.types /etc/nginx/mime.types
+COPY nginx/nginx.conf /usr/local/openresty/nginx/conf/nginx.conf

@@ -1,0 +1,17 @@
+image: python:latest
+
+run:
+  tags:
+    - imqa_k8s_runner
+  script:
+    - pip install build twine
+    - python -m build allure-pytest --outdir ./dist
+    - python -m build allure-python-commons --outdir ./dist
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
+      when: on_success
+      changes:
+        - allure-pytest/**/*.py
+        - allure-python-commons/**/*.py
+    - when: never

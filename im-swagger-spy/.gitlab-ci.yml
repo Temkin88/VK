@@ -1,0 +1,67 @@
+stages:
+  - ruff
+  - publish
+
+default:
+  image:
+#    name: python:latest
+    name: mirror.gcr.io/python:3.12-bullseye
+#   pull_policy: if-not-present
+  before_script:
+    - echo $CI_PIPELINE_SOURCE
+    - echo $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
+    # Setup git
+    - git init
+    - git config user.email "ci-bot@vk.team"
+    - git config user.name "ci-bot"
+    - git remote add gitlab_origin https://git:${CI_PUSH_TOKEN}@gitlab.corp.mail.ru/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}
+    - git config pull.ff only
+    - git checkout -b ${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME:-$CI_COMMIT_BRANCH}
+    - git pull gitlab_origin ${CI_MERGE_REQUEST_SOURCE_BRANCH_NAME:-$CI_COMMIT_BRANCH}
+
+ruff-check-format:
+  stage: ruff
+  tags:
+    - imqa_k8s_runner
+  script:
+    # Install ruff
+    - pip install ruff==0.11.13
+    - ruff check --fix
+    - ruff format
+    - ruff clean
+      # commit and push changes
+    - MESSAGE=$(git -P show -s --format=%s)
+    - AUTHOR=$(git -P show -s --format=%ae)
+    - git add .
+    - git diff --cached --exit-code && echo "no linter fixes" || (git reset --soft HEAD~1 && git commit -m "$MESSAGE" --author="$AUTHOR" && git push ${ORIGIN} HEAD:$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME --force -o ci.skip)
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+      when: on_success
+    - when: never
+
+publish:
+  stage: publish
+  tags:
+    - imqa_k8s_runner
+  script:
+    # Setup build tools
+    - pip install build twine hatch
+    # Bumping version
+    - CURRENT_VERSION=$(hatch version)
+    - NEW_VERSION=$(hatch version | grep $(date +'%Y.%-m') && hatch version patch || hatch version $(date +'%Y.%m').0)
+    # Saving changes
+    - git add im_swagger_spy/__init__.py
+    - git commit -m "[IMQA] Bump version from '${CURRENT_VERSION}' to '${NEW_VERSION}'"
+    - git tag $NEW_VERSION
+    - git push gitlab_origin HEAD:master -o ci.skip
+    - git push gitlab_origin HEAD:master --tags -o ci.skip
+    # Building
+    - python -m build
+    # Upload to package registry
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == 'push'
+      when: on_success
+    - when: never
+
+

@@ -1,0 +1,52 @@
+version: "3.3"
+services:
+  nginx:
+    image: nginx:1.15-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  db:
+    image: postgres
+    command: postgres -c 'max_connections=200' -c 'log_statement=all'
+    hostname: kata.fake.db
+    restart: always
+    environment:
+      POSTGRES_USER: kata.fake.inst
+      POSTGRES_PASSWORD: Aa568217
+      POSTGRES_HOST_AUTH_METHOD: md5
+      POSTGRES_DB: fake_kata_db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+    - ./database:/var/lib/postgresql/data/pgdata
+  fake_kata:
+    container_name: 'fake_kata_instance'
+    build: .
+    image: 'fake-kata:latest'
+    environment:
+      COMMON_NAME: localhost
+      EMAIL: v.korobov@corp.mail.ru
+      KEY: 'cert/private.key'
+      CERT: 'cert/selfsigned.crt'
+      HOST: 0.0.0.0
+      PORT: 80
+      WORKERS: 10
+      RELOAD: 'false'
+      DB_URL: 'postgres://kata.fake.inst:Aa568217@kata.fake.db:5432/fake_kata_db'
+      REQUEST_LIMIT: "3000000/second"
+    hostname: 'kata.fake.instance'
+    volumes:
+      - ./volume:/code/cert
+    depends_on:
+      - nginx
+      - db

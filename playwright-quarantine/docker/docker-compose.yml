@@ -1,0 +1,98 @@
+name: playwright-quarantine
+
+services:
+  pw-db:
+    image: postgres:16
+    networks:
+      - test_quarantine_ntw
+    container_name: quarantine-db
+    environment:
+      POSTGRES_DB: quarantine
+      POSTGRES_USER: quarantine
+      POSTGRES_PASSWORD: quarantine
+    ports:
+      - "5432:5432"
+    volumes:
+      - pw_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quarantine -d quarantine"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  migrate:
+    image: registry-gitlab.corp.mail.ru/imqa/playwright-quarantine:latest
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: quarantine-migrate
+    networks:
+      - test_quarantine_ntw
+    environment:
+      # runtime URL (asyncpg) для приложения; alembic/env.py сам заменит на psycopg для миграций
+      DATABASE_URL: postgresql+asyncpg://quarantine:quarantine@pw-db:5432/quarantine
+      QUARANTINE_ALERT_CHAT_ID: AoOd5DeQO3E3p0kWNQ
+    env_file:
+      - ../.env
+    depends_on:
+      pw-db:
+        condition: service_healthy
+    command: ["alembic", "upgrade", "head"]
+    restart: "no"
+
+  api:
+    image: registry-gitlab.corp.mail.ru/imqa/playwright-quarantine:latest
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: quarantine-api
+    networks:
+      - test_quarantine_ntw
+    environment:
+      DATABASE_URL: postgresql+asyncpg://quarantine:quarantine@pw-db:5432/quarantine
+      QUARANTINE_ALERT_CHAT_ID: AoOd5DeQO3E3p0kWNQ
+      # API_KEY: "change-me"  # если включили require_api_key
+    env_file:
+      - ../.env
+    depends_on:
+      pw-db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  bot:
+    image: registry-gitlab.corp.mail.ru/imqa/playwright-quarantine:latest
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: quarantine-bot
+    command: ["python", "qa_bot.py"]
+    networks:
+      - test_quarantine_ntw
+    environment:
+      DATABASE_URL: postgresql+asyncpg://quarantine:quarantine@pw-db:5432/quarantine
+      QUARANTINE_ALERT_CHAT_ID: AoOd5DeQO3E3p0kWNQ
+      # API_KEY: "change-me"  # если включили require_api_key
+    env_file:
+      - ../.env
+    depends_on:
+      pw-db:
+        condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+volumes:
+  pw_pgdata:
+
+networks:
+  test_quarantine_ntw:
+    name: testquarantineapp_test_quarantine_ntw
+    external: true
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.0.5.0/24
+        gateway: 10.0.5.1

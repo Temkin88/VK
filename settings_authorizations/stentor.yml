@@ -1,0 +1,163 @@
+---
+daemonSetsRange:
+  stentor:
+    count: 1
+    securityContext:
+      runAsUser: 9
+    nodeSelector:
+      im/backend: "true"
+    annotations:
+      prometheus.io/scrape: "true"
+      prometheus.io/port: "5550"
+    volumes:
+      configs-stentor:
+        configMap:
+          name: config
+      configs:
+        emptyDir: {}
+    initContainers:
+      make-stentor-config:
+        resources:
+          requests:
+            cpu: 1m
+            memory: 10Mi
+          limits:
+            cpu: 1m
+            memory: 10Mi
+        image:
+          repository: "[[.Release.Store.registry.default.host]]/imdevops/docker/envsubst"
+          tag: "[[ .Release.Store.images.envsubst.tag ]]"
+        env:
+          MAIN_CONFIG: /usr/local/etc/stentor.yaml
+        volumes:
+          configs:
+            mountPath: /usr/local/etc/
+          configs-stentor:
+            mountPath: /tmp/configs/
+        envFrom:
+          - secretRef:
+              name: stentor
+        command:
+          - sh
+          - -c
+          - |
+            envsubst -no-unset -no-empty < /tmp/configs/config.tmpl > $MAIN_CONFIG
+            printf "config with masked password:\n"
+            sed 's/password:.*$/password: ****/g' $MAIN_CONFIG
+    containers:
+      stentor:
+        resources:
+          requests:
+            memory: 512Mi
+            cpu: 25m
+          limits:
+            memory: 2G
+            cpu: 100m
+        image:
+          repository: "[[ .Release.Store.registry.default.host ]]/imdevops/docker/stentor"
+          tag: "[[ .Release.Store.images.stentor.tag ]]"
+        ports:
+          http:
+            containerPort: 8035
+          probes:
+            containerPort: 5001
+          metrics:
+            containerPort: 5550
+        command:
+          - /usr/local/stentor/bin/stentor
+        args:
+          - -config
+          - /usr/local/etc/stentor.yaml
+        probes:
+          readinessProbe:
+            httpGet:
+              port: probes
+              path: /service/ready_for_requests
+          livenessProbe:
+            httpGet:
+              port: probes
+              path: /service/alive
+        volumes:
+          configs:
+            mountPath: /usr/local/etc/
+
+configMaps:
+  config:
+    config.tmpl:
+      name: "${RESOURCE_NAME}"
+      host: "${NODE_NAME}"
+      log:
+        level: INFO
+        async: true
+      ctlr:
+        server: "[[ .Release.Store.hosts.ctrl ]]:[[ .Release.Store.hosts.ctrlPort ]]"
+        map: "stentor"
+        verbose: false
+      conference_creator_type: "vcl"
+      conference_creator_timeout: 2s
+      http:
+        listen: "0.0.0.0:8035"
+      cronos:
+        enable_get_last_seen_from_cronos: true
+        map: cronos
+        timeout: 1s
+      reich_st:
+        timeout: 1s
+        map: border
+      gradus:
+        timeout: 1s
+        map: gradus
+      prof_st:
+        timeout: 1s
+      sn_st:
+        timeout: 1s
+      tarantool:
+        enabled: false
+      keycloak:
+        enabled: true
+        address: "http://keycloak-http.keycloak.svc.cluster.local"
+        user: "di"
+        password: ${PASSWORD}
+        realm: "myteam"
+        allowed_group: vkteams_allowed
+      kittenhouse:
+        enabled: true
+        address: "http://[[ .Release.Store.hosts.kittenhouse ]]"
+        timeout: 1s
+      acl:
+        enabled: false
+      nomail:
+        timeout: 2s
+        map: nomail
+        force_update_user: true
+      pacman:
+        timeout: 5s
+        map: pacman
+      fed_gw:
+        timeout: 5s
+        map: "fed-gw"
+      probes:
+        enabled: true
+        address: ":5001"
+      stroma:
+        enabled: true
+        timeout: 5s
+        map: "stroma"
+        retry_count: 3
+      alive_check:
+        enabled_background_check: true
+        background_check_interval: 1m
+        fail_interval: 10s
+        request_timeout: 5s
+        count_threads: 8
+      prometheus:
+        listen: "0.0.0.0:5550"
+        shutdown_timeout: 3s
+
+services:
+  stentor:
+    internalTrafficPolicy: Local
+    ports:
+      - name: http
+        port: 8035
+        containerPort: http

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a3afcfa3-8443-4c35-b6fe-0f24b2dcc360" name="Changes" comment="[IMSERVER-21440] fix bot" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="36QLbErrO8tPVv5sNVtnLT86av6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.bot_api.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;IMSERVER-21440-2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/a.zakhtarenko/PyCharmMiscProject/VK/bot-tasks-release&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="bot_api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bot-tasks-release" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="BOT_TOKEN" value="001.3830767913.0235271810:1000006197" />
+        <env name="GITLAB_TOKEN" value="Q_DMWAetg52bWU2RS99T" />
+        <env name="JIRA_TOKEN" value="MTUwNDQ5NDc0NjQ4OsoPBQU6vPg741q9q22IqZJAZoLW" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bot_api.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="bot-tasks-release" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="BOT_TOKEN" value="001.3830767913.0235271810:1000006197" />
+        <env name="GITLAB_TOKEN" value="Q_DMWAetg52bWU2RS99T" />
+        <env name="JIRA_TOKEN" value="MTUwNDQ5NDc0NjQ4OsoPBQU6vPg741q9q22IqZJAZoLW" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.bot_api" />
+      <item itemvalue="Python.main" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.bot_api" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3afcfa3-8443-4c35-b6fe-0f24b2dcc360" name="Changes" comment="" />
+      <created>1764933918175</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764933918175</updated>
+    </task>
+    <task id="LOCAL-00001" summary="[IMSERVER-21440] fix docker">
+      <option name="closed" value="true" />
+      <created>1764934113999</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764934113999</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[IMSERVER-21440] fix dot tasks release">
+      <option name="closed" value="true" />
+      <created>1765212586539</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1765212586539</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[IMSERVER-21440] fix dot tasks release">
+      <option name="closed" value="true" />
+      <created>1765215094327</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1765215094327</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[IMSERVER-21440] fix dot tasks release">
+      <option name="closed" value="true" />
+      <created>1765218485537</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765218485537</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[IMSERVER-21440] fix release_manager">
+      <option name="closed" value="true" />
+      <created>1765270944036</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1765270944036</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[IMSERVER-21440] add imserver/backstage">
+      <option name="closed" value="true" />
+      <created>1765350813310</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1765350813310</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[IMSERVER-21440] fix readme">
+      <option name="closed" value="true" />
+      <created>1765374223145</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765374223145</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[IMSERVER-21440] add catalog-info">
+      <option name="closed" value="true" />
+      <created>1765387041946</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765387041946</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[IMSERVER-21440] fix catalog-info">
+      <option name="closed" value="true" />
+      <created>1765439801085</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1765439801085</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[IMSERVER-21440] fix readme">
+      <option name="closed" value="true" />
+      <created>1765441555800</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1765441555800</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[IMSERVER-21440] fix readme">
+      <option name="closed" value="true" />
+      <created>1765448186639</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1765448186639</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[IMSERVER-21440] fix readme">
+      <option name="closed" value="true" />
+      <created>1765450711910</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1765450711910</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[IMSERVER-21440] fix readme">
+      <option name="closed" value="true" />
+      <created>1765456123150</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1765456123150</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[IMSERVER-21440] fix bot">
+      <option name="closed" value="true" />
+      <created>1765528152903</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765528152903</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[IMSERVER-21440] fix docker" />
+    <MESSAGE value="[IMSERVER-21440] fix dot tasks release" />
+    <MESSAGE value="[IMSERVER-21440] fix release_manager" />
+    <MESSAGE value="[IMSERVER-21440] add imserver/backstage" />
+    <MESSAGE value="[IMSERVER-21440] add catalog-info" />
+    <MESSAGE value="[IMSERVER-21440] fix catalog-info" />
+    <MESSAGE value="[IMSERVER-21440] fix readme" />
+    <MESSAGE value="[IMSERVER-21440] fix bot" />
+    <option name="LAST_COMMIT_MESSAGE" value="[IMSERVER-21440] fix bot" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/release_manager.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/release_manager.py</url>
+          <line>86</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/release_manager.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/release_manager.py</url>
+          <line>77</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bot_api.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

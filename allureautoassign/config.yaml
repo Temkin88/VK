@@ -1,0 +1,199 @@
+ignore: []
+#  - s.balyaev@vk.team
+#  - d.petrovskaya@vk.team
+#  - v.kuzakov@vk.team
+#  - v.sindalovsky@vk.team
+users:
+  m.krauklis@corp.mail.ru:
+    commands:
+      - Чат и сообщения
+    functionalities:
+      - 02. Messaging
+    directions:
+      - VKT. Базовый модуль и Мессенджер
+  konstantin.gerasimov@vk.team:
+    commands:
+      - Чат и сообщения
+    functionalities:
+      - 02. Messaging
+    directions:
+      - VKT. Базовый модуль и Мессенджер
+  o.uluer@corp.mail.ru:
+    commands:
+      - Контакты и диалоги
+    functionalities:
+      - 03. Contacts
+    directions:
+      - VKT. Базовый модуль и Мессенджер
+  a.zheleznichenko@vk.team:
+    commands:
+      - Контакты и диалоги
+    functionalities:
+      - 03. Contacts
+    directions:
+      - VKT. Базовый модуль и Мессенджер
+  v.kuzakov@vk.team:
+    commands:
+      - Базовый модуль
+    functionalities:
+      - 04. Base App
+    directions:
+      - VKT. Базовый модуль и Мессенджер
+  e.bronshtein@vk.team:
+    commands:
+      - Звонки
+    functionalities:
+      - 09. Calls
+    directions:
+      - VKT. ВКС
+  e.semirova@vk.team:
+    commands:
+      - Звонки
+    functionalities:
+      - 09. Calls
+    directions:
+      - VKT. ВКС
+  v.sharifullin@vk.team:
+    commands:
+      - Звонки
+    functionalities:
+      - 09. Calls
+    directions:
+      - VKT. ВКС
+  s.balyaev@vk.team:
+    commands:
+      - Федерация
+    functionalities:
+      - 10. Federations
+    directions:
+      - VKT. Платформа сервисов
+  v.sindalovsky@vk.team:
+    commands:
+      - Федерация
+    functionalities:
+      - 10. Federations
+    directions:
+      - VKT. Платформа сервисов
+  anton.lyakh@vk.team:
+    commands:
+      - Групповые политики
+    functionalities:
+      - 11. Group Policies
+    directions:
+      - VKT. Платформа сервисов
+  d.petrovskaya@vk.team:
+    commands:
+      - Оргструктура
+    functionalities:
+      - 14. Orgstructure
+    directions:
+      - VKT. Платформа сервисов
+  t.patrakeeva@vk.team:
+    commands:
+      - Оргструктура
+    functionalities:
+      - 14. Orgstructure
+    directions:
+      - VKT. Платформа сервисов
+  mariia.soloveva@vk.team:
+    commands:
+      - Суперапп
+    functionalities:
+      - 16. Mail
+      - 17. Calendar
+      - 18. Cloud
+      - 19. MiniApps
+      - 20. BotAPI
+      - 21. Notifications
+      - 22. Settings
+    directions:
+      - VKT. Суперапп и Платформа интеграций
+  viatcheslav.durnev@vk.team:
+    commands:
+      - Суперапп
+    functionalities:
+      - 16. Mail
+      - 17. Calendar
+      - 18. Cloud
+      - 19. MiniApps
+      - 20. BotAPI
+      - 21. Notifications
+      - 22. Settings
+    directions:
+      - VKT. Суперапп и Платформа интеграций
+  s.murtazin@vk.team:
+    commands:
+      - Аутентификация и Авторизация
+    functionalities:
+      - 23. Authentication
+    directions:
+      - VKT. Суперапп и Платформа интеграций
+  a.kitaev@vk.team:
+    commands:
+      - Профиль и поиск
+    functionalities:
+      - 12. Search
+      - 13. Profile
+      - 25. Tasks
+    directions:
+      - VKT. Суперапп и Платформа интеграций
+product_functionality:
+  02. Messaging:
+    direction: VKT. Базовый модуль и Мессенджер
+    team: Чат и сообщения
+  03. Contacts:
+    direction: VKT. Базовый модуль и Мессенджер
+    team: Контакты и диалоги
+  04. Base App:
+    direction: VKT. Базовый модуль и Мессенджер
+    team: Базовый модуль
+  09. Calls:
+    direction: VKT. ВКС
+    team: Звонки
+  10. Federations:
+    direction: VKT. Платформа сервисов
+    team: Федерация
+  11. Group Policies:
+    direction: VKT. Платформа сервисов
+    team: Федерация
+  12. Search:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Профиль и поиск
+  13. Profile:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Профиль и поиск
+  14. Orgstructure:
+    direction: VKT. Платформа сервисов
+    team: Оргструктура
+  16. Mail:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Суперапп
+  17. Calendar:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Суперапп
+  18. Cloud:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Суперапп
+  19. MiniApps:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Суперапп
+  20. BotAPI:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Суперапп
+  21. Notifications:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Суперапп
+  22. Settings:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Суперапп
+  23. Authentication:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Аутентификация и Авторизация
+  25. Tasks:
+    direction: VKT. Суперапп и Платформа интеграций
+    team: Профиль и поиск
+ignored_product_functionality:
+  - 27. Core Design
+  - 29. Core Backend
+  - 32. Core Desktop
+  - 44. Admin Panel (WorkSpace)

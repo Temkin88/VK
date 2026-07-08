@@ -1,0 +1,15 @@
+image: docker
+services:
+  - docker:dind
+
+swagger:
+  stage: build
+  script:
+    - docker-compose up --build -d
+    - sleep 5
+    - curl -k -O https://localhost/openapi.json
+    - python3 json2yaml.py
+    - ls -l
+  artifacts:
+    paths:
+      - swagger.yml

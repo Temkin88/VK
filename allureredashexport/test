@@ -1,0 +1,36 @@
+SELECT
+    t5.redash_date,
+    t5.total_count,
+    t6.automated_count,
+    t6.automated_count * 100 / t5.total_count AS automation_percent
+FROM (
+    SELECT
+        t1.redash_date,
+        COUNT(*) AS total_count
+    FROM testcase AS t1
+    JOIN testcasecustomfieldvalue_testcase_through AS t2 ON (t1.id = t2.testcase_id)
+    JOIN testcasecustomfieldvalue AS t3 ON (t2.testcasecustomfieldvalue_id = t3.id)
+    JOIN testcasestatus AS t4 ON (t1.status_id = t4.id)
+    WHERE
+        t1.project_id = {{ Project }}
+        AND t3.name = 'Suite'
+        AND t3.value = 'CritWay_CheckList'
+        AND t4.name IN ('To Automate', 'Actual Autotest', 'Actual', 'Review Autotest', 'Active')
+    GROUP BY t1.redash_date
+) AS t5
+JOIN (
+    SELECT
+        t1.redash_date,
+        COUNT(*) AS automated_count
+    FROM testcase AS t1
+    JOIN testcasecustomfieldvalue_testcase_through AS t2 ON (t1.id = t2.testcase_id)
+    JOIN testcasecustomfieldvalue AS t3 ON (t2.testcasecustomfieldvalue_id = t3.id)
+    JOIN testcasestatus AS t4 ON (t1.status_id = t4.id)
+    WHERE
+        t1.project_id = {{ Project }}
+        AND t1.automated = true
+        AND t3.name = 'Suite'
+        AND t3.value = 'CritWay_CheckList'
+        AND t4.name IN ('To Automate', 'Actual Autotest', 'Actual', 'Review Autotest', 'Active')
+    GROUP BY t1.redash_date
+) AS t6 ON (t5.redash_date = t6.redash_date);

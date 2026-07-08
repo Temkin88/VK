@@ -1,0 +1,29 @@
+volumes:
+  python:
+
+
+services:
+  python_db_setup:
+    image: registry-gitlab.corp.mail.ru/imqa/redash-dwh:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: python -m project.db_setup
+    environment:
+      CONTAINER_NAME: 'python_db_setup'
+    env_file:
+      - variables.env
+
+  python_dwh:
+    image: registry-gitlab.corp.mail.ru/imqa/redash-dwh:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: python -m project.etl_script
+    environment:
+      CONTAINER_NAME: 'python_dwh'
+    env_file:
+      - variables.env
+      - prod.env
+    depends_on:
+      - python_db_setup

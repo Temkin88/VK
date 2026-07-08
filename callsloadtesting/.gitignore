@@ -1,0 +1,5 @@
+.idea
+__pycache__/*
+common/__pycache__/*
+scenario/conference_call/__pycache__/*
+imcom/*

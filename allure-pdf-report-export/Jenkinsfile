@@ -1,0 +1,91 @@
+import groovy.json.JsonSlurper
+
+
+pipeline {
+
+    agent any
+
+    parameters {
+        string(name: 'ALLURE_BASE_URL', defaultValue: 'https://allure.vk.team/api/rs', description: 'Allure TO base URL')
+        string(name: 'ALLURE_LAUNCH_IDS', defaultValue: '', description: 'Launch ids to be exported')
+        booleanParam(name: 'TOGGLE', defaultValue: false, description: 'Toggle this value')
+        string(name: 'TITLE_LINK', defaultValue: 'http://im.builds.hb.bizmrg.com/vkti-title-22.10.pdf', description: 'Title page for merged report only')
+    }
+
+    stages {
+
+        stage('Preparing python3 requirements') {
+            steps {
+                sh "python3 -m pip install -r requirements.txt"
+            }
+        }
+
+        stage('Badging') {
+            steps {
+                script {
+                    def ALLURE_LAUNCH_IDS_LIST = params.ALLURE_LAUNCH_IDS.split(',')
+                    currentBuild.description = ""
+                    for (LAUNCH_ID in ALLURE_LAUNCH_IDS_LIST) {
+                        addHtmlBadge html: "<a href='https://allure.vk.team/launch/${LAUNCH_ID}' target='_blank'><img src='${JENKINS_URL}/buildStatus/icon?job=Export%20Allure%20TestOps%20report%20PDF&subject=LAUNCH:${LAUNCH_ID}&build=${BUILD_ID}'></a>"
+                        currentBuild.description = currentBuild.description + "<a href='https://allure.vk.team/launch/${LAUNCH_ID}' target='_blank'><img src='${JENKINS_URL}/buildStatus/icon?job=Export%20Allure%20TestOps%20report%20PDF&subject=LAUNCH:${LAUNCH_ID}&build=${BUILD_ID}'></a><br>"
+                    }
+                }
+            }
+        }
+
+        stage('Cleaning workspace root') {
+            steps {
+                script {
+                    sh 'find . -name "*.pdf" -delete'
+                }
+            }
+        }
+
+        stage('Exporting reports') {
+            steps {
+                script {
+                    withCredentials([
+                        string(
+                            credentialsId: 'allure_testops_token',
+                            variable: 'allure_testops_token'
+                        )
+                    ]) {
+                        env.ALLURE_TOKEN = allure_testops_token
+                        env.ALLURE_LAUNCH_IDS = params.ALLURE_LAUNCH_IDS
+                        env.ALLURE_BASE_URL = params.ALLURE_BASE_URL
+                    }
+                    try {
+                        sh 'python3 ExportLaunchInfo.py'
+                    } catch (exception) {
+                        sh "Exception: $exception"
+                    }
+                }
+            }
+        }
+
+        stage('Merge?') {
+            steps {
+                script {
+
+                    sh "curl $TITLE_LINK -o title.pdf -s -f"
+                    if (params.TOGGLE) {
+                        sh 'pdftools merge -o merged.pdf title.pdf $(find . -name "Report*.pdf")'
+                    }
+                }
+            }
+        }
+
+        stage('Archive') {
+            steps {
+                script {
+                    try {
+                        println "archiveArtifacts artifacts: *.pdf, fingerprint: false"
+                        archiveArtifacts artifacts: "*.pdf", fingerprint: false
+                    } catch (Exception e) {
+                        println "Failed to archiveArtifacts()"
+                    }
+                }
+            }
+        }
+    }
+}

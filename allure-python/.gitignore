@@ -1,0 +1,15 @@
+.DS_Store
+.idea
+.tox
+.pytest_cache
+.python-version
+.venv
+
+*.pyc
+*.egg-info
+
+*/build
+*/dist
+
+/.allure-report
+/.allure-results

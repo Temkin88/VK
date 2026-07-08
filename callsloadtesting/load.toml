@@ -1,0 +1,5 @@
+[tool.locust]
+locustfile = "locustfile.py"
+class-picker = true
+processes = 10
+host = "https://u.vkt-4vm-872.beicq.net"

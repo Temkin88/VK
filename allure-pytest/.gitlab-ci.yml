@@ -1,0 +1,24 @@
+stages:
+  - publish
+
+default:
+  image:
+#    name: python:latest
+    name: registry-gitlab.corp.mail.ru/imqa/imcommonsupplyclient/python:latest
+#   pull_policy: if-not-present
+
+publish:
+  stage: publish
+  tags:
+    - imqa_k8s_runner
+  script:
+    # Setup build tools
+    - pip install build twine
+    # Building
+    - python -m build
+    # Upload to package registry
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE == 'push'
+      when: on_success
+    - when: never

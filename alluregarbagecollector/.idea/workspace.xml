@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="db0807fc-a7d3-47bc-88fa-deb2743d2cae" name="Changes" comment="[IMQA-7106] Added script to transfer crit values from tags to cfv">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.example.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.example.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/attrs/test_case.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/attrs/test_case.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2fS6PUTiS5PSqoO1dtlo4cA5Oak" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.assing_tag_to_cfv.executor": "Run",
+    "Python.extract.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "IMQA-7456"
+  }
+}]]></component>
+  <component name="RunManager" selected="Python.extract">
+    <configuration name="assing_tag_to_cfv" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AllureGarbageCollector" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/assing_tag_to_cfv.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="extract" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="AllureGarbageCollector" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/extract.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="AllureGarbageCollector" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.extract" />
+        <item itemvalue="Python.assing_tag_to_cfv" />
+        <item itemvalue="Python.extract" />
+        <item itemvalue="Python.extract" />
+        <item itemvalue="Python.extract" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-ce3d9afa04ac-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.20224.347" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="db0807fc-a7d3-47bc-88fa-deb2743d2cae" name="Changes" comment="" />
+      <created>1713782107862</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713782107862</updated>
+    </task>
+    <task id="LOCAL-00001" summary="[IMQA] Disabled Severity check for active/actual cases">
+      <option name="closed" value="true" />
+      <created>1715960699722</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715960699722</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[IMQA] Disabled Severity check for active/actual cases">
+      <option name="closed" value="true" />
+      <created>1715960790198</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715960790198</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[IMQA] Added checked customfields to config.example.yaml">
+      <option name="closed" value="true" />
+      <created>1715961399377</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715961399377</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[IMQA] Added checked customfields to config.example.yaml">
+      <option name="closed" value="true" />
+      <created>1715961402796</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715961402796</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[IMQA] Added checked customfields to config.example.yaml">
+      <option name="closed" value="true" />
+      <created>1715961602569</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715961602569</updated>
+    </task>
+    <task id="LOCAL-00006" summary="[IMQA] Added checked customfields to config.example.yaml">
+      <option name="closed" value="true" />
+      <created>1715962349525</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715962349525</updated>
+    </task>
+    <task id="LOCAL-00007" summary="[IMQA] Fixes">
+      <option name="closed" value="true" />
+      <created>1716191246904</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716191246904</updated>
+    </task>
+    <task id="LOCAL-00008" summary="[IMQA] Fixes">
+      <option name="closed" value="true" />
+      <created>1716191267813</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716191267813</updated>
+    </task>
+    <task id="LOCAL-00009" summary="[IMQA-4048] Fix linking issue for actualization to defect">
+      <option name="closed" value="true" />
+      <created>1716292889347</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1716292889347</updated>
+    </task>
+    <task id="LOCAL-00010" summary="[IMQA] Added defect_id to log">
+      <option name="closed" value="true" />
+      <created>1716293966694</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1716293966694</updated>
+    </task>
+    <task id="LOCAL-00011" summary="[IMQA] Added defect_id to log">
+      <option name="closed" value="true" />
+      <created>1716299823351</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716299823351</updated>
+    </task>
+    <task id="LOCAL-00012" summary="[IMQA] Added defect_id to log">
+      <option name="closed" value="true" />
+      <created>1716300237971</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716300237971</updated>
+    </task>
+    <task id="LOCAL-00013" summary="[IMQA] Added dead code detection">
+      <option name="closed" value="true" />
+      <created>1716321631548</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716321631548</updated>
+    </task>
+    <task id="LOCAL-00014" summary="[IMQA] Added dead code detection">
+      <option name="closed" value="true" />
+      <created>1716321911294</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1716321911294</updated>
+    </task>
+    <task id="LOCAL-00015" summary="[IMQA] Added dead code detection">
+      <option name="closed" value="true" />
+      <created>1716472375512</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716472375512</updated>
+    </task>
+    <task id="LOCAL-00016" summary="[IMQA] Added dead code detection">
+      <option name="closed" value="true" />
+      <created>1716473850531</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1716473850531</updated>
+    </task>
+    <task id="LOCAL-00017" summary="[IMQA-4513] Setting &quot;Product Functionality&quot; from Jira only on test cases without &quot;Product Functionality&quot;">
+      <option name="closed" value="true" />
+      <created>1716989642909</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1716989642909</updated>
+    </task>
+    <task id="LOCAL-00018" summary="[IMQA-4750] Added IMVOIP project">
+      <option name="closed" value="true" />
+      <created>1719309394685</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1719309394685</updated>
+    </task>
+    <task id="LOCAL-00019" summary="[IMQA] Quick fix">
+      <option name="closed" value="true" />
+      <created>1726056636560</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1726056636560</updated>
+    </task>
+    <task id="LOCAL-00020" summary="[IMQA-6395] Fix changing flow from 'VK Teams: Manual' to 'Default'">
+      <option name="closed" value="true" />
+      <created>1733388304059</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1733388304059</updated>
+    </task>
+    <task id="LOCAL-00021" summary="[IMQA-6395] Fix changing flow from 'VK Teams: Manual' to 'Default'">
+      <option name="closed" value="true" />
+      <created>1733388354970</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1733388354970</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[IMQA] Disabled Severity check for active/actual cases" />
+    <MESSAGE value="[IMQA] Added checked customfields to config.example.yaml" />
+    <MESSAGE value="[IMQA] Fixes" />
+    <MESSAGE value="[IMQA-4048] Fix linking issue for actualization to defect" />
+    <MESSAGE value="[IMQA] Added defect_id to log" />
+    <MESSAGE value="[IMQA] Added dead code detection" />
+    <MESSAGE value="[IMQA-4513] Setting &quot;Product Functionality&quot; from Jira only on test cases without &quot;Product Functionality&quot;" />
+    <MESSAGE value="[IMQA-4750] Added IMVOIP project" />
+    <MESSAGE value="[IMQA] Quick fix" />
+    <MESSAGE value="[IMQA-6395] Fix changing flow from 'VK Teams: Manual' to 'Default'" />
+    <MESSAGE value="[IMQA-7106] Added script to transfer crit values from tags to cfv" />
+    <option name="LAST_COMMIT_MESSAGE" value="[IMQA-7106] Added script to transfer crit values from tags to cfv" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
